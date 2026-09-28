@@ -1,0 +1,1514 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction étape par étape au framework web [Django]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/django-sept-2026/internationalisation.html">
+      
+      
+        <link rel="prev" href="les-gabarits-et-les-formulaires.html">
+      
+      
+        <link rel="next" href="portees-des-donnees.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>5. Internationalisation - Introduction étape par étape au framework web [Django]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introduction étape par étape au framework web [Django]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-internationalisation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction étape par étape au framework web [Django]" class="md-header__button md-logo" aria-label="Introduction étape par étape au framework web [Django]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction étape par étape au framework web [Django]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Internationalisation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/django-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction étape par étape au framework web [Django]" class="md-nav__button md-logo" aria-label="Introduction étape par étape au framework web [Django]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction étape par étape au framework web [Django]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/django-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vues-routage-reponses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Vues, routage, réponses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-modele-dune-vue.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Le modèle d'une vue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-gabarits-et-les-formulaires.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les gabarits et les formulaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Internationalisation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="internationalisation.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Internationalisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-exemple-22-une-application-en-deux-langues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Exemple 22 : une application en deux langues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1. Exemple 22 : une application en deux langues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-la-configuration-configsettingspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.1. La configuration : config/settings.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-le-dictionnaire-localeenlc_messagesdjangopo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.2. Le dictionnaire : locale/en/LC_MESSAGES/django.po
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-le-choix-de-la-langue-les-routes-et-les-vues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.3. Le choix de la langue : les routes et les vues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-traduire-dans-les-gabarits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.4. Traduire dans les gabarits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#515-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.5. Exécution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="portees-des-donnees.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Portées des données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-cycle-de-vie-dune-requete.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Le cycle de vie d'une requête
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="authentification-et-autorisation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Authentification et autorisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture-en-couches-et-acces-aux-donnees.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Architecture en couches et accès aux données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion-intermediaire.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Conclusion intermédiaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="etude-de-cas--lapplication-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Étude de cas : l'application RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annexes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Annexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="5-internationalisation">5. <span style="color: #2e74b5">Internationalisation</span></h1>
+<p>Une application internationalisée affiche ses textes dans la langue de l&#x27;utilisateur. L&#x27;étude de cas est en français et en anglais. Le principe est simple : les gabarits contiennent des textes marqués comme « à traduire », et un dictionnaire par langue associe à chaque texte sa traduction. La langue choisie est mémorisée dans un cookie.</p>
+<p><em>[Django]</em> utilise pour cela <em>[gettext]</em>, le système de traduction du projet GNU, que <em>[Python]</em> connaît aussi (module <em>[gettext]</em> de la bibliothèque standard), et que l&#x27;on retrouve dans de nombreux logiciels libres. Avec <em>[gettext]</em>, la clé d&#x27;un texte est le texte lui-même, écrit dans la langue d&#x27;origine : un gabarit écrit <strong><em>[{% translate &quot;Accueil&quot; %}]</em></strong>, et le dictionnaire anglais associe « Accueil » à « Home ». Une page reste ainsi lisible, et fonctionne, même sans dictionnaire : les textes s&#x27;affichent dans la langue d&#x27;origine. C&#x27;est une différence avec les versions <em>[Symfony]</em>, <em>[Laravel]</em>, <em>[Flask]</em>, <em>[Spring MVC]</em>, <em>[ASP.NET Core MVC]</em> et <em>[NestJS]</em> de l&#x27;étude de cas, qui utilisaient des clés abstraites (<strong><em>[MENU.ACCUEIL]</em></strong>). Les dictionnaires sont des fichiers texte, au format <strong><em>[.po]</em></strong> (Portable Object), que des outils savent extraire du code et que des logiciels de traduction savent éditer ; <em>[Django]</em> lit leur version compilée, les fichiers <strong><em>[.mo]</em></strong> (Machine Object). <em>[gettext]</em> sait aussi accorder un texte au pluriel, selon les règles de chaque langue. <em>[Django]</em> est d&#x27;ailleurs lui-même traduit ainsi : c&#x27;est grâce à ses dictionnaires que ses messages d&#x27;erreur sont en français depuis l&#x27;exemple 08. La mise en forme des dates et des montants reste celle de l&#x27;exemple 16.</p>
+<h2 id="51-exemple-22-une-application-en-deux-langues">5.1. <span style="color: #2e74b5">Exemple 22 : une application en deux langues</span></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>22-i18n/
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>├── config/
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>│   ├── settings.py
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>│   ├── urls.py
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>│   └── ...
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>├── locale/
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>│   └── en/
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>│       └── LC_MESSAGES/
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>│           ├── django.mo
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>│           └── django.po
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>├── pages/
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>│   ├── templatetags/
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>│   │   ├── <span class="gs">__init__</span>.py
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>│   │   └── formats.py
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>│   ├── <span class="gs">__init__</span>.py
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>│   ├── modeles.py
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>│   └── views.py
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>├── static/
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>│   └── ...
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>├── templates/
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>│   ├── fragments/
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>│   │   └── navbar.html
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>│   ├── pages/
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>│   │   ├── accueil.html
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>│   │   └── produits.html
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>│   └── layout.html
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>└── manage.py
+</code></pre></div></td></tr></table></div>
+<h3 id="511-la-configuration-configsettingspy">5.1.1. <span style="color: #1f4d78">La configuration : config/settings.py</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span>
+<span class="normal"><a href="#__codelineno-1-47">47</a></span>
+<span class="normal"><a href="#__codelineno-1-48">48</a></span>
+<span class="normal"><a href="#__codelineno-1-49">49</a></span>
+<span class="normal"><a href="#__codelineno-1-50">50</a></span>
+<span class="normal"><a href="#__codelineno-1-51">51</a></span>
+<span class="normal"><a href="#__codelineno-1-52">52</a></span>
+<span class="normal"><a href="#__codelineno-1-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># config/settings.py : la configuration de l'exemple 22</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">"django-insecure-e</span><span class="si">%u</span><span class="s2">qntr!nz5i2w(d^_-cwr6w=w^2z^mx6vpvpgsg91qvp)bnzl"</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s2">"Europe/Paris"</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">ROOT_URLCONF</span> <span class="o">=</span> <span class="s2">"config.urls"</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">WSGI_APPLICATION</span> <span class="o">=</span> <span class="s2">"config.wsgi.application"</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="c1"># la langue par défaut, et les langues gérées par l'application</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s2">"fr"</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>    <span class="p">(</span><span class="s2">"fr"</span><span class="p">,</span> <span class="s2">"Français"</span><span class="p">),</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>    <span class="p">(</span><span class="s2">"en"</span><span class="p">,</span> <span class="s2">"English"</span><span class="p">),</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="p">]</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="c1"># les dossiers des DICTIONNAIRES de l'application (fichiers .po, compilés en .mo)</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="n">LOCALE_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s2">"locale"</span><span class="p">]</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="c1"># le cookie qui mémorise la langue choisie (c'est aussi le nom par défaut)</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="n">LANGUAGE_COOKIE_NAME</span> <span class="o">=</span> <span class="s2">"django_language"</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>    <span class="s2">"django.contrib.staticfiles"</span><span class="p">,</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>    <span class="s2">"pages"</span><span class="p">,</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="p">]</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>    <span class="c1"># LocaleMiddleware : la langue de chaque requête, lue dans le cookie de la langue,</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>    <span class="c1"># à défaut dans l'entête Accept-Language du navigateur, à défaut LANGUAGE_CODE</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a>    <span class="s2">"django.middleware.locale.LocaleMiddleware"</span><span class="p">,</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="p">]</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a>    <span class="p">{</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a>        <span class="s2">"BACKEND"</span><span class="p">:</span> <span class="s2">"django.template.backends.django.DjangoTemplates"</span><span class="p">,</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a>        <span class="s2">"DIRS"</span><span class="p">:</span> <span class="p">[</span><span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s2">"templates"</span><span class="p">],</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a>        <span class="s2">"OPTIONS"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a>            <span class="s2">"context_processors"</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a>                <span class="s2">"django.template.context_processors.request"</span><span class="p">,</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a>                <span class="c1"># la variable LANGUAGE_CODE : la langue de la requête</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>                <span class="s2">"django.template.context_processors.i18n"</span><span class="p">,</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a>            <span class="p">],</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a>        <span class="p">},</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a>    <span class="p">},</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="p">]</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s2">"static/"</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a>    <span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s2">"static"</span><span class="p">,</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52"></a>    <span class="n">BASE_DIR</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"commun"</span> <span class="o">/</span> <span class="s2">"static"</span><span class="p">,</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53"></a><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 14 : la langue par défaut de l&#x27;application, celle d&#x27;une requête qui n&#x27;en précise pas (exemple 08). C&#x27;est aussi la langue des textes des gabarits : le français n&#x27;a donc pas besoin de dictionnaire ;</li>
+<li>lignes 15-18 : les langues que gère l&#x27;application ;</li>
+<li>ligne 20 : <strong><em>[LOCALE_PATHS]</em></strong>, les dossiers où <em>[Django]</em> cherche les dictionnaires de l&#x27;application, en plus des dossiers <strong><em>[locale]</em></strong> de chaque application (dont ceux de <em>[Django]</em> lui-même). Chaque dictionnaire est rangé dans un dossier <strong><em>[&lt;langue&gt;/LC_MESSAGES]</em></strong>, sous le nom <strong><em>[django.po]</em></strong> (et <strong><em>[django.mo]</em></strong>) : c&#x27;est l&#x27;organisation que demande <em>[gettext]</em> ;</li>
+<li>ligne 22 : le nom du cookie qui mémorise la langue choisie. <strong><em>[django_language]</em></strong> est la valeur par défaut ; nous l&#x27;écrivons pour qu&#x27;elle soit visible ;</li>
+<li>lignes 29-33 : le middleware <strong><em>[LocaleMiddleware]</em></strong> de <em>[Django]</em> remplace notre middleware <strong><em>[FixerLangue]</em></strong> de l&#x27;exemple 16. Pour chaque requête, il choisit la langue, parmi celles du réglage <strong><em>[LANGUAGES]</em></strong> : celle du cookie de la langue s&#x27;il en existe un ; à défaut, celle que préfère le navigateur, d&#x27;après l&#x27;entête <strong><em>[Accept-Language]</em></strong> (exemple 12) ; à défaut, <strong><em>[LANGUAGE_CODE]</em></strong>. Il l&#x27;active (<strong><em>[translation.activate]</em></strong>, exemple 16), et la range dans <strong><em>[request.LANGUAGE_CODE]</em></strong>. Il ajoute enfin à la réponse l&#x27;entête <strong><em>[Content-Language]</em></strong> (la langue de la page), et l&#x27;entête <strong><em>[Vary: Accept-Language]</em></strong>, qui prévient les caches que la réponse dépend de cet entête ;</li>
+<li>ligne 43 : le processeur de contexte <strong><em>[i18n]</em></strong> ajoute aux gabarits les variables <strong><em>[LANGUAGE_CODE]</em></strong> (la langue de la requête), <strong><em>[LANGUAGES]</em></strong> et <strong><em>[LANGUAGE_BIDI]</em></strong> (vrai pour une langue qui s&#x27;écrit de droite à gauche).</li>
+</ul>
+<h3 id="512-le-dictionnaire-localeenlc_messagesdjangopo">5.1.2. <span style="color: #1f4d78">Le dictionnaire : locale/en/LC_MESSAGES/django.po</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span>
+<span class="normal"><a href="#__codelineno-2-37">37</a></span>
+<span class="normal"><a href="#__codelineno-2-38">38</a></span>
+<span class="normal"><a href="#__codelineno-2-39">39</a></span>
+<span class="normal"><a href="#__codelineno-2-40">40</a></span>
+<span class="normal"><a href="#__codelineno-2-41">41</a></span>
+<span class="normal"><a href="#__codelineno-2-42">42</a></span>
+<span class="normal"><a href="#__codelineno-2-43">43</a></span>
+<span class="normal"><a href="#__codelineno-2-44">44</a></span>
+<span class="normal"><a href="#__codelineno-2-45">45</a></span>
+<span class="normal"><a href="#__codelineno-2-46">46</a></span>
+<span class="normal"><a href="#__codelineno-2-47">47</a></span>
+<span class="normal"><a href="#__codelineno-2-48">48</a></span>
+<span class="normal"><a href="#__codelineno-2-49">49</a></span>
+<span class="normal"><a href="#__codelineno-2-50">50</a></span>
+<span class="normal"><a href="#__codelineno-2-51">51</a></span>
+<span class="normal"><a href="#__codelineno-2-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="gh"># locale/en/LC_MESSAGES/django.po : le dictionnaire anglais de l'exemple 22.</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="gh"># msgid : le texte d'origine, tel qu'il est écrit dans les gabarits (en français) ;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="gh"># msgstr : sa traduction. Ce fichier est compilé en django.mo (le fichier que lit</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="gh"># Django) par la commande : python manage.py compilemessages</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>msgid ""
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>msgstr ""
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>"Language: en\n"
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>"MIME-Version: 1.0\n"
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>"Content-Type: text/plain; charset=UTF-8\n"
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>"Content-Transfer-Encoding: 8bit\n"
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="gh">#: templates/fragments/navbar.html:6</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>msgid "Accueil"
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>msgstr "Home"
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="gh">#: templates/fragments/navbar.html:7</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>msgid "Produits"
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>msgstr "Products"
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="gh">#: templates/pages/accueil.html:4 templates/pages/accueil.html:7</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a>msgid "Bienvenue"
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a>msgstr "Welcome"
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="gh">#: templates/pages/accueil.html:9</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="gh">#, python-format</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a>msgid "Bonjour %(nom)s !"
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a>msgstr "Hello %(nom)s!"
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="gh">#: templates/pages/accueil.html:11</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="gh">#, python-format</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a>msgid "Nous sommes le %(date)s."
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a>msgstr "Today is %(date)s."
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="gh">#: templates/pages/produits.html:4 templates/pages/produits.html:7</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a>msgid "Nos produits"
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a>msgstr "Our products"
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a>
+<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="gh">#: templates/pages/produits.html:9</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40"></a>msgid "Produit"
+<a id="__codelineno-2-41" name="__codelineno-2-41"></a>msgstr "Product"
+<a id="__codelineno-2-42" name="__codelineno-2-42"></a>
+<a id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="gh">#: templates/pages/produits.html:9</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44"></a>msgid "Prix"
+<a id="__codelineno-2-45" name="__codelineno-2-45"></a>msgstr "Price"
+<a id="__codelineno-2-46" name="__codelineno-2-46"></a>
+<a id="__codelineno-2-47" name="__codelineno-2-47"></a><span class="gh">#: templates/pages/produits.html:21</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48"></a><span class="gh">#, python-format</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49"></a>msgid "%(n)s produit au catalogue."
+<a id="__codelineno-2-50" name="__codelineno-2-50"></a>msgid_plural "%(n)s produits au catalogue."
+<a id="__codelineno-2-51" name="__codelineno-2-51"></a>msgstr[0] "%(n)s product in the catalogue."
+<a id="__codelineno-2-52" name="__codelineno-2-52"></a>msgstr[1] "%(n)s products in the catalogue."
+</code></pre></div></td></tr></table></div>
+<p>Un fichier <strong><em>[.po]</em></strong> est une suite d&#x27;entrées, séparées par des lignes vides :</p>
+<ul>
+<li>lignes 1-4 : un commentaire ;</li>
+<li>lignes 5-11 : l&#x27;entrée d&#x27;en-tête : un texte vide (<strong><em>[msgid &quot;&quot;]</em></strong>), dont la « traduction » (<strong><em>[msgstr]</em></strong>) contient les informations du dictionnaire : la langue, le jeu de caractères, et la règle du pluriel de la langue (<strong><em>[Plural-Forms]</em></strong> : en anglais, deux formes, la seconde pour tout nombre différent de 1) ;</li>
+<li>lignes 13-15 : une entrée ordinaire : <strong><em>[msgid]</em></strong> est le texte d&#x27;origine, tel qu&#x27;il est écrit dans le gabarit ; <strong><em>[msgstr]</em></strong> sa traduction. La ligne <strong><em>[#:]</em></strong> indique où le texte a été trouvé (un gabarit et une ligne) : c&#x27;est un commentaire, pour le traducteur ;</li>
+<li>lignes 25-28 : un texte qui contient une variable. Dans le dictionnaire, une variable s&#x27;écrit <strong><em>[%(nom)s]</em></strong> (la syntaxe des chaînes de format de <em>[Python]</em>, exemple 10) ; la ligne <strong><em>[#, python-format]</em></strong> le signale aux outils. La traduction peut déplacer la variable, ou changer la ponctuation qui l&#x27;entoure (le point d&#x27;exclamation n&#x27;est pas précédé d&#x27;une espace en anglais) ;</li>
+<li>lignes 47-52 : un texte au pluriel : <strong><em>[msgid]</em></strong> est la forme au singulier, <strong><em>[msgid_plural]</em></strong> la forme au pluriel, et chaque forme de la traduction est numérotée (<strong><em>[msgstr[0]]</em></strong>, <strong><em>[msgstr[1]]</em></strong>), dans l&#x27;ordre que fixe la règle <strong><em>[Plural-Forms]</em></strong>. En français, 0 et 1 sont au singulier, alors qu&#x27;en anglais 0 est au pluriel (« 0 products ») : <em>[gettext]</em> le sait, grâce à cette règle. C&#x27;est un progrès sur le « produit(s) » des versions précédentes de l&#x27;étude de cas.</li>
+</ul>
+<p>On n&#x27;écrit pas ce fichier à la main. La commande :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>python manage.py makemessages -l en
+</code></pre></div></td></tr></table></div>
+<p>parcourt les gabarits et le code <em>[Python]</em> du projet, en extrait tous les textes marqués « à traduire », et crée ou met à jour le fichier <strong><em>[locale/en/LC_MESSAGES/django.po]</em></strong> : les nouveaux textes y sont ajoutés, avec une traduction vide, et les traductions déjà faites sont conservées. Il ne reste qu&#x27;à écrire les traductions, dans un éditeur de texte, ou dans un logiciel spécialisé (<strong><em>[Poedit]</em></strong>, par exemple). La commande :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>python manage.py compilemessages
+</code></pre></div></td></tr></table></div>
+<p>compile ensuite chaque fichier <strong><em>[.po]</em></strong> en un fichier <strong><em>[.mo]</em></strong>, binaire, rapide à lire, qui est celui que <em>[Django]</em> utilise. Il faut relancer le serveur après une compilation : les dictionnaires sont chargés une fois pour toutes. Ces deux commandes utilisent les programmes de <em>[gettext]</em> (<strong><em>[xgettext]</em></strong>, <strong><em>[msgfmt]</em></strong>...), qu&#x27;il faut avoir installés (sous <em>[Linux]</em>, le paquet <em>[gettext]</em> ; sous <em>[Windows]</em>, par exemple les binaires distribués sur le site <a href="https://mlocati.github.io/articles/gettext-iconv-windows.html">mlocati.github.io</a>). Le fichier <strong><em>[django.mo]</em></strong> étant fourni avec l&#x27;exemple, il n&#x27;est pas nécessaire de les installer pour l&#x27;exécuter.</p>
+<h3 id="513-le-choix-de-la-langue-les-routes-et-les-vues">5.1.3. <span style="color: #1f4d78">Le choix de la langue : les routes et les vues</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># config/urls.py : la table de routage principale</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pages</span><span class="w"> </span><span class="kn">import</span> <span class="n">views</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">path</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">accueil</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"accueil"</span><span class="p">),</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>    <span class="n">path</span><span class="p">(</span><span class="s2">"produits"</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">produits</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"produits"</span><span class="p">),</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    <span class="c1"># re_path : une route décrite par une expression régulière ; une autre langue</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="c1"># que fr ou en ne correspond pas à la route (404)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="n">re_path</span><span class="p">(</span><span class="sa">r</span><span class="s2">"^langue/(?P&lt;code&gt;fr|en)$"</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">changer_langue</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"langue"</span><span class="p">),</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 12 : <strong><em>[re_path]</em></strong> décrit une route par une expression régulière, plutôt que par la syntaxe de <strong><em>[path]</em></strong> (exemple 02). <strong><em>[^]</em></strong> et <strong><em>[$]</em></strong> marquent le début et la fin du chemin ; <strong><em>[(?P&lt;code&gt;fr|en)]</em></strong> est un groupe nommé : le texte qu&#x27;il reconnaît, <strong><em>[fr]</em></strong> ou <strong><em>[en]</em></strong> (la barre verticale signifie « ou »), est passé à la vue dans le paramètre <strong><em>[code]</em></strong>. Une autre langue ne correspond à aucune route : <strong><em>[/langue/de]</em></strong> donne une erreur 404.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span>
+<span class="normal"><a href="#__codelineno-6-29">29</a></span>
+<span class="normal"><a href="#__codelineno-6-30">30</a></span>
+<span class="normal"><a href="#__codelineno-6-31">31</a></span>
+<span class="normal"><a href="#__codelineno-6-32">32</a></span>
+<span class="normal"><a href="#__codelineno-6-33">33</a></span>
+<span class="normal"><a href="#__codelineno-6-34">34</a></span>
+<span class="normal"><a href="#__codelineno-6-35">35</a></span>
+<span class="normal"><a href="#__codelineno-6-36">36</a></span>
+<span class="normal"><a href="#__codelineno-6-37">37</a></span>
+<span class="normal"><a href="#__codelineno-6-38">38</a></span>
+<span class="normal"><a href="#__codelineno-6-39">39</a></span>
+<span class="normal"><a href="#__codelineno-6-40">40</a></span>
+<span class="normal"><a href="#__codelineno-6-41">41</a></span>
+<span class="normal"><a href="#__codelineno-6-42">42</a></span>
+<span class="normal"><a href="#__codelineno-6-43">43</a></span>
+<span class="normal"><a href="#__codelineno-6-44">44</a></span>
+<span class="normal"><a href="#__codelineno-6-45">45</a></span>
+<span class="normal"><a href="#__codelineno-6-46">46</a></span>
+<span class="normal"><a href="#__codelineno-6-47">47</a></span>
+<span class="normal"><a href="#__codelineno-6-48">48</a></span>
+<span class="normal"><a href="#__codelineno-6-49">49</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># pages/views.py : les vues ne savent rien de la langue : elles fournissent des</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1"># données, les gabarits les traduisent et les mettent en forme</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.conf</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.shortcuts</span><span class="w"> </span><span class="kn">import</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">render</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.utils.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">url_has_allowed_host_and_scheme</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.views.decorators.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">require_GET</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.modeles</span><span class="w"> </span><span class="kn">import</span> <span class="n">Produit</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="nd">@require_GET</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">accueil</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">"pages/accueil.html"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"nom"</span><span class="p">:</span> <span class="s2">"Marie"</span><span class="p">,</span> <span class="s2">"aujourdhui"</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">23</span><span class="p">)})</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="nd">@require_GET</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="k">def</span><span class="w"> </span><span class="nf">produits</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">"pages/produits.html"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"produits"</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>        <span class="n">Produit</span><span class="p">(</span><span class="s2">"Clavier"</span><span class="p">,</span> <span class="mi">2500</span><span class="p">),</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>        <span class="n">Produit</span><span class="p">(</span><span class="s2">"Souris"</span><span class="p">,</span> <span class="mi">1250</span><span class="p">),</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>        <span class="n">Produit</span><span class="p">(</span><span class="s2">"Écran"</span><span class="p">,</span> <span class="mi">114900</span><span class="p">),</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>    <span class="p">]})</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="c1"># GET /langue/en : mémorise le choix dans le cookie de la langue, puis revient à la</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="c1"># page précédente</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="nd">@require_GET</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="k">def</span><span class="w"> </span><span class="nf">changer_langue</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32"></a>    <span class="n">reponse</span> <span class="o">=</span> <span class="n">redirect</span><span class="p">(</span><span class="n">page_d_origine</span><span class="p">(</span><span class="n">request</span><span class="p">))</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33"></a>    <span class="c1"># le cookie : un an de vie, illisible par le JavaScript de la page (httponly),</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34"></a>    <span class="c1"># jamais envoyé avec une requête POST venue d'un autre site (samesite Lax)</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35"></a>    <span class="n">reponse</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">LANGUAGE_COOKIE_NAME</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">max_age</span><span class="o">=</span><span class="mi">365</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">,</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36"></a>                       <span class="n">httponly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">samesite</span><span class="o">=</span><span class="s2">"Lax"</span><span class="p">)</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37"></a>    <span class="k">return</span> <span class="n">reponse</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38"></a>
+<a id="__codelineno-6-39" name="__codelineno-6-39"></a>
+<a id="__codelineno-6-40" name="__codelineno-6-40"></a><span class="c1"># la page d'où l'on vient (entête Referer), si elle appartient à CE site : rediriger</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41"></a><span class="c1"># vers une adresse quelconque venue de la requête permettrait d'envoyer</span>
+<a id="__codelineno-6-42" name="__codelineno-6-42"></a><span class="c1"># l'utilisateur sur un autre site (faille "open redirect")</span>
+<a id="__codelineno-6-43" name="__codelineno-6-43"></a><span class="k">def</span><span class="w"> </span><span class="nf">page_d_origine</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-6-44" name="__codelineno-6-44"></a>    <span class="n">referer</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Referer"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+<a id="__codelineno-6-45" name="__codelineno-6-45"></a>    <span class="c1"># url_has_allowed_host_and_scheme : vrai pour une adresse relative, ou une adresse</span>
+<a id="__codelineno-6-46" name="__codelineno-6-46"></a>    <span class="c1"># absolue dont la machine est celle de la requête</span>
+<a id="__codelineno-6-47" name="__codelineno-6-47"></a>    <span class="k">if</span> <span class="n">url_has_allowed_host_and_scheme</span><span class="p">(</span><span class="n">referer</span><span class="p">,</span> <span class="n">allowed_hosts</span><span class="o">=</span><span class="p">{</span><span class="n">request</span><span class="o">.</span><span class="n">get_host</span><span class="p">()}):</span>
+<a id="__codelineno-6-48" name="__codelineno-6-48"></a>        <span class="k">return</span> <span class="n">referer</span>
+<a id="__codelineno-6-49" name="__codelineno-6-49"></a>    <span class="k">return</span> <span class="s2">"/"</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 14-25 : les vues de l&#x27;accueil et des produits ne savent rien de la langue : elles fournissent des données brutes (un nom, une date, des montants en centimes). La traduction et la mise en forme sont l&#x27;affaire des gabarits. La classe <strong><em>[Produit]</em></strong> a un nom et un prix en centimes ; la bibliothèque <strong><em>[formats]</em></strong> est celle de l&#x27;exemple 16 : son filtre <strong><em>[date_longue]</em></strong> écrit une date au format « complet » de la langue active (« mercredi 23 septembre 2026 », « Wednesday, September 23, 2026 »), et son filtre <strong><em>[monnaie]</em></strong> un montant ;</li>
+<li>lignes 30-37 : la vue du changement de langue répond par une redirection vers la page d&#x27;où vient l&#x27;utilisateur : celui-ci retrouve sa page, dans la nouvelle langue ;</li>
+<li>lignes 35-36 : la réponse porte un cookie, que le navigateur renverra à chaque requête. <strong><em>[set_cookie]</em></strong> reçoit son nom, sa valeur, et ses options : <strong><em>[max_age]</em></strong>, sa durée de vie en secondes (un an) ; <strong><em>[httponly=True]</em></strong> le rend invisible au <em>[JavaScript]</em> de la page ; <strong><em>[samesite=&quot;Lax&quot;]</em></strong> interdit au navigateur de l&#x27;envoyer avec une requête POST venue d&#x27;un autre site. Il est ajouté à la réponse sous la forme d&#x27;un entête <strong><em>[Set-Cookie]</em></strong> ;</li>
+<li>lignes 43-49 : la page d&#x27;origine est donnée par l&#x27;entête <strong><em>[Referer]</em></strong> de la requête (l&#x27;orthographe fautive, avec un seul <strong><em>[r]</em></strong>, est celle de la norme HTTP), que le navigateur remplit avec l&#x27;URL de la page qui contenait le lien. Mais cet entête vient du client, qui peut y mettre n&#x27;importe quoi. Rediriger aveuglément vers cette adresse ferait de notre application un redirecteur ouvert (open redirect) : un lien piégé, qui porte notre nom de domaine, pourrait envoyer l&#x27;utilisateur sur un site malveillant. La fonction <strong><em>[url_has_allowed_host_and_scheme]</em></strong> de <em>[Django]</em> (<strong><em>[django.utils.http]</em></strong>) vérifie qu&#x27;une adresse est relative, ou qu&#x27;elle désigne l&#x27;une des machines permises (ici, celle de la requête : <strong><em>[request.get_host()]</em></strong>) ; sinon, on revient à l&#x27;accueil.</li>
+</ul>
+<p><em>[Django]</em> fournit d&#x27;ailleurs une vue toute faite pour changer de langue, <strong><em>[django.views.i18n.set_language]</em></strong>, qui fait le même travail à partir d&#x27;un formulaire POST ; nous avons écrit la nôtre pour la montrer, et pour changer de langue par un simple lien.</p>
+<h3 id="514-traduire-dans-les-gabarits">5.1.4. <span style="color: #1f4d78">Traduire dans les gabarits</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;!doctype html&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>{% load static %}
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>{# LANGUAGE_CODE : la langue de la requête, "fr" ou "en" #}
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"{{ LANGUAGE_CODE }}"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>  {# le titre : le bloc [titre] de la page, déjà traduit #}
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block titre %}{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{% static 'bootstrap/css/bootstrap.min.css' %}"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{% static 'css/styles.css' %}"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"container py-3"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>    {% include "fragments/navbar.html" %}
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>      {% block contenu %}{% endblock %}
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 4 : l&#x27;attribut <strong><em>[lang]</em></strong> de la page indique sa langue aux navigateurs, aux moteurs de recherche et aux lecteurs d&#x27;écran ; <strong><em>[LANGUAGE_CODE]</em></strong> est la langue de la requête, fournie par le processeur de contexte <strong><em>[i18n]</em></strong> ;</li>
+<li>ligne 9 : le titre de la page est fourni par la page elle-même, déjà traduit (bloc <strong><em>[titre]</em></strong>).</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>{# i18n : la bibliothèque des balises de traduction #}
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>{% load i18n %}
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">"navbar navbar-expand bg-light rounded mb-3 px-3"</span><span class="p">&gt;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"navbar-nav me-auto"</span><span class="p">&gt;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    {# translate : la traduction d'un texte, dans la langue de la requête #}
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav-link"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{% url 'accueil' %}"</span><span class="p">&gt;</span>{% translate "Accueil" %}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav-link"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{% url 'produits' %}"</span><span class="p">&gt;</span>{% translate "Produits" %}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>  {# get_available_languages : les langues du réglage LANGUAGES, des couples (code, nom) #}
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>  {% get_available_languages as langues %}
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn-group btn-group-sm"</span><span class="p">&gt;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>    {% for code, nom in langues %}
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>      {# la langue courante est mise en évidence #}
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn {% if code == LANGUAGE_CODE %}btn-primary{% else %}btn-outline-primary{% endif %}"</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>         <span class="na">href</span><span class="o">=</span><span class="s">"{% url 'langue' code %}"</span> <span class="na">title</span><span class="o">=</span><span class="s">"{{ nom }}"</span><span class="p">&gt;</span>{{ code|upper }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>    {% endfor %}
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2 : les balises de traduction sont dans la bibliothèque <strong><em>[i18n]</em></strong>, que chaque gabarit doit charger (exemple 16) ;</li>
+<li>lignes 6-7 : la balise <strong><em>[{% translate %}]</em></strong> rend la traduction d&#x27;un texte, dans la langue de la requête (ou le texte lui-même, s&#x27;il n&#x27;a pas de traduction) ;</li>
+<li>lignes 10-17 : la balise <strong><em>[{% get_available_languages %}]</em></strong> range dans une variable les langues du réglage <strong><em>[LANGUAGES]</em></strong>, des couples (code, nom), que la boucle décompose (<strong><em>[for code, nom in langues]</em></strong>). Un bouton par langue, qui mène à la vue <strong><em>[/langue/&lt;code&gt;]</em></strong>. La langue courante est mise en évidence (<strong><em>[btn-primary]</em></strong>, bouton plein).</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>{% extends "layout.html" %}
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>{% load i18n formats %}
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>{% block titre %}{% translate "Bienvenue" %}{% endblock %}
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>{% block contenu %}
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{% translate "Bienvenue" %}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>  {# blocktranslate : un texte qui contient des variables {{ nom }} #}
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{% blocktranslate %}Bonjour {{ nom }} !{% endblocktranslate %}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>  {# with : la date, mise en forme d'abord (filtre date_longue, cf. exemple 16), puis insérée dans le texte #}
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{% blocktranslate with date=aujourdhui|date_longue %}Nous sommes le {{ date }}.{% endblocktranslate %}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>{% endblock %}
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 4 : le bloc <strong><em>[titre]</em></strong>, traduit, pour le gabarit parent ;</li>
+<li>ligne 9 : la balise <strong><em>[{% blocktranslate %}]</em></strong> traduit un texte qui contient des variables : <strong><em>[{{ nom }}]</em></strong> y devient <strong><em>[%(nom)s]</em></strong> dans le dictionnaire. Seules des variables simples y sont permises (ni filtre, ni point) ;</li>
+<li>ligne 11 : une variable calculée ne peut donc entrer dans le texte que par <strong><em>[with]</em></strong> : la date, mise en forme dans la langue de la requête par le filtre <strong><em>[date_longue]</em></strong>, est rangée dans la variable <strong><em>[date]</em></strong> du texte.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>{% extends "layout.html" %}
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>{% load i18n formats %}
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>{% block titre %}{% translate "Nos produits" %}{% endblock %}
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>{% block contenu %}
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{% translate "Nos produits" %}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>  <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">"table table-sm w-auto"</span><span class="p">&gt;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">th</span><span class="p">&gt;</span>{% translate "Produit" %}<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;&lt;</span><span class="nt">th</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-end"</span><span class="p">&gt;</span>{% translate "Prix" %}<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>      {% for produit in produits %}
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ produit.nom }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>          {# le filtre monnaie de l'exemple 16 : le format dépend de la langue #}
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-end"</span><span class="p">&gt;</span>{{ produit.prix_centimes|monnaie }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>      {% endfor %}
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>  <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>  {# le pluriel : count choisit la forme d'après le nombre n ; plural sépare les formes #}
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{% blocktranslate count n=produits|length %}{{ n }} produit au catalogue.{% plural %}{{ n }} produits au catalogue.{% endblocktranslate %}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a>{% endblock %}
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 15 : le filtre <strong><em>[monnaie]</em></strong>, dont le résultat dépend de la langue ;</li>
+<li>ligne 21 : le pluriel. <strong><em>[count n=produits|length]</em></strong> donne le nombre qui choisit la forme (<strong><em>[length]</em></strong>, exemple 14) ; la balise <strong><em>[{% plural %}]</em></strong> sépare la forme au singulier de la forme au pluriel, écrites dans la langue d&#x27;origine. Les noms des produits, eux, ne sont pas traduits : ce sont des données, qui, dans une vraie application, viendraient d&#x27;une base de données.</li>
+</ul>
+<p>Hors des gabarits, on traduit par les fonctions du module <strong><em>[django.utils.translation]</em></strong> : <strong><em>[gettext(&quot;Accueil&quot;)]</em></strong> (souvent importée sous le nom court <strong><em>[_]</em></strong> : <strong><em>[_(&quot;Accueil&quot;)]</em></strong>), <strong><em>[ngettext]</em></strong> pour le pluriel, et <strong><em>[gettext_lazy]</em></strong>, une traduction « paresseuse », faite seulement au moment où le texte est utilisé : c&#x27;est celle qu&#x27;il faut pour un texte défini au chargement d&#x27;un module (le libellé d&#x27;un champ de formulaire, par exemple), quand la langue de la requête n&#x27;est pas encore connue. L&#x27;étude de cas l&#x27;utilise.</p>
+<h3 id="515-execution">5.1.5. <span style="color: #1f4d78">Exécution</span></h3>
+<p>La page d&#x27;accueil, en français (la langue par défaut), puis en anglais après un clic sur le bouton « EN » :</p>
+<p><img src="images/10000000000002BE0000010FC84F13B4.png" width="428" height="165" style="width:11.322cm;height:4.371cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE0000010FC84F13B4.png" /></p>
+<p><img src="images/10000000000002BE0000010F58143312.png" width="428" height="165" style="width:11.322cm;height:4.371cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE0000010F58143312.png" /></p>
+<p>La page des produits, dans les deux langues. Les montants suivent les conventions de chaque langue :</p>
+<p><img src="images/10000000000002BE000001736E251A7A.png" width="428" height="226" style="width:11.322cm;height:5.985cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE000001736E251A7A.png" /></p>
+<p><img src="images/10000000000002BE0000017312228926.png" width="428" height="226" style="width:11.322cm;height:5.985cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE0000017312228926.png" /></p>
+<p>Le changement de langue, observé avec <em>[curl]</em>. L&#x27;option <strong><em>[-H]</em></strong> fournit l&#x27;entête <strong><em>[Referer]</em></strong> qu&#x27;enverrait le navigateur :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>curl -i -H "Referer: http://localhost:8000/produits" http://localhost:8000/langue/en
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>HTTP/1.1 302 Found
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>Content-Type: text/html; charset=utf-8
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>Location: http://localhost:8000/produits
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>Vary: Accept-Language
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>Content-Language: fr
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>Set-Cookie: django_language=en; expires=Mon, 27 Sep 2027 17:37:43 GMT; HttpOnly; Max-Age=31536000; Path=/; SameSite=Lax
+</code></pre></div></td></tr></table></div>
+<p>La redirection ramène à la page d&#x27;origine, et le cookie est déposé pour un an. La réponse elle-même est encore en français (<strong><em>[Content-Language: fr]</em></strong>) : la langue n&#x27;a été choisie qu&#x27;à l&#x27;arrivée de la requête, avant que le cookie n&#x27;existe. Un <strong><em>[Referer]</em></strong> qui désigne un autre site ne permet pas d&#x27;y être redirigé :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>curl -i -H "Referer: https://pirate.example/piege" http://localhost:8000/langue/en
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>HTTP/1.1 302 Found
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>Content-Type: text/html; charset=utf-8
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>Location: /
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>...
+</code></pre></div></td></tr></table></div>
+<p>L&#x27;utilisateur revient à l&#x27;accueil, et reste chez nous. Enfin, la page d&#x27;accueil, demandée avec le cookie <strong><em>[django_language=en]</em></strong> (option <strong><em>[-b]</em></strong> de <em>[curl]</em>) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>curl -b "django_language=en" http://localhost:8000/
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">&lt;!doctype html&gt;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Welcome<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>...
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav-link"</span> <span class="na">href</span><span class="o">=</span><span class="s">"/"</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav-link"</span> <span class="na">href</span><span class="o">=</span><span class="s">"/produits"</span><span class="p">&gt;</span>Products<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a>...
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hello Marie!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Today is Wednesday, September 23, 2026.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a>...
+</code></pre></div></td></tr></table></div>
+<p>Le cookie n&#x27;est pas signé : il circule en clair, et l&#x27;utilisateur peut le modifier. Ce n&#x27;est pas un problème : il ne contient rien de secret, et <strong><em>[LocaleMiddleware]</em></strong> n&#x27;accepte que les langues du réglage <strong><em>[LANGUAGES]</em></strong>. L&#x27;exemple suivant revient sur la confiance qu&#x27;on peut accorder à un cookie. Sans cookie, <strong><em>[LocaleMiddleware]</em></strong> lit l&#x27;entête <strong><em>[Accept-Language]</em></strong> du navigateur : <strong><em>[curl -H &quot;Accept-Language: en-US,en;q=0.9&quot; http://localhost:8000/]</em></strong> rend la page en anglais. Les deux mécanismes se combinent ainsi naturellement : la langue du navigateur à la première visite, puis celle que l&#x27;utilisateur a choisie. Une troisième façon, fréquente, place la langue dans l&#x27;URL (<strong><em>[/en/produits]</em></strong>) : la fonction <strong><em>[i18n_patterns]</em></strong> de <em>[Django]</em> préfixe alors les routes par la langue, et <strong><em>[LocaleMiddleware]</em></strong> la lit dans le chemin. L&#x27;étude de cas s&#x27;en tient au cookie.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Ce tutoriel, rédigé par l’IA d’Anthropic <strong>Claude</strong> à la demande de <strong>Serge Tahé</strong>, est mis à la disposition du public selon les termes de la
+        <em>licence Creative Commons Attribution – Pas d’utilisation commerciale –
+        ShareAlike 3.0 Unported</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

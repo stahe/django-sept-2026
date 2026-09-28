@@ -1,0 +1,936 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction étape par étape au framework web [Django]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/django-sept-2026/annexes.html">
+      
+      
+        <link rel="prev" href="conclusion.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>13. Annexes - Introduction étape par étape au framework web [Django]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introduction étape par étape au framework web [Django]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#13-annexes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction étape par étape au framework web [Django]" class="md-header__button md-logo" aria-label="Introduction étape par étape au framework web [Django]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction étape par étape au framework web [Django]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              13. Annexes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/django-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction étape par étape au framework web [Django]" class="md-nav__button md-logo" aria-label="Introduction étape par étape au framework web [Django]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction étape par étape au framework web [Django]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/django-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vues-routage-reponses.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Vues, routage, réponses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-modele-dune-vue.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Le modèle d'une vue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-gabarits-et-les-formulaires.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les gabarits et les formulaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="internationalisation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Internationalisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="portees-des-donnees.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Portées des données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-cycle-de-vie-dune-requete.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Le cycle de vie d'une requête
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="authentification-et-autorisation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Authentification et autorisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture-en-couches-et-acces-aux-donnees.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Architecture en couches et accès aux données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion-intermediaire.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Conclusion intermédiaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="etude-de-cas--lapplication-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Étude de cas : l'application RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Annexes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="annexes.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Annexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#131-installation-de-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1. Installation de Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132-pip-et-les-environnements-virtuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2. pip et les environnements virtuels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133-installation-de-visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3. Installation de Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#134-installation-de-mysql-avec-laragon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4. Installation de MySQL avec Laragon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#135-installation-de-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5. Installation de curl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#136-loutil-django-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6. L&#x27;outil django-admin
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="13-annexes">13. <span style="color: #2e74b5">Annexes</span></h1>
+<h2 id="131-installation-de-python">13.1. <span style="color: #2e74b5">Installation de Python</span></h2>
+<p>Les exemples et l&#x27;étude de cas demandent <em>[Python]</em> 3.12 ou une version plus récente (<em>[Django]</em> 6.1 l&#x27;exige). Ils ont été testés avec la version 3.13.</p>
+<p>Sous <em>[Windows]</em>, on télécharge l&#x27;installateur sur la page python.org/downloads (le bouton Download Python 3.13.x, ou une version plus récente). Au premier écran de l&#x27;installateur, on coche la case Add python.exe to PATH, qui permet de taper <strong><em>[python]</em></strong> dans n&#x27;importe quelle console, puis Install Now. L&#x27;installateur installe aussi <em>[pip]</em>, le module <em>[venv]</em>, et le lanceur <strong><em>[py]</em></strong> (<strong><em>[py -3.13]</em></strong> lance une version précise, quand plusieurs sont installées). Sous <em>[Windows]</em> 10 et 11, taper <strong><em>[python]</em></strong> sans l&#x27;avoir installé ouvre le Microsoft Store : c&#x27;est un raccourci du système, que l&#x27;on peut désactiver (Paramètres / Applications / Paramètres avancés des applications / Alias d&#x27;exécution d&#x27;application).</p>
+<p>Sous <em>[macOS]</em>, on utilise l&#x27;installateur de python.org, ou le gestionnaire de paquets <strong><em>[Homebrew]</em></strong> : <strong><em>[brew install python@3.13]</em></strong>. Sous <em>[Linux]</em>, <em>[Python]</em> est déjà présent, mais le module <em>[venv]</em> et <em>[pip]</em> sont souvent des paquets à part. Sous <strong><em>[Ubuntu]</em></strong> 24.04 (dont la version de <em>[Python]</em> est la 3.12) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo apt install python3 python3-venv python3-pip
+</code></pre></div></td></tr></table></div>
+<p>Sous <em>[macOS]</em> et <em>[Linux]</em>, les commandes s&#x27;appellent <strong><em>[python3]</em></strong> et <strong><em>[pip3]</em></strong> ; dans un environnement virtuel activé, <strong><em>[python]</em></strong> et <em>[pip]</em> suffisent. On vérifie l&#x27;installation dans une nouvelle console :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>python --version
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>python -m pip --version
+</code></pre></div></td></tr></table></div>
+<p>La première commande doit afficher un numéro de version égal ou supérieur à 3.12 (par exemple <strong><em>[Python 3.13.7]</em></strong>).</p>
+<h2 id="132-pip-et-les-environnements-virtuels">13.2. <span style="color: #2e74b5">pip et les environnements virtuels</span></h2>
+<p><em>[pip]</em> est le gestionnaire de bibliothèques de <em>[Python]</em>. Il télécharge les bibliothèques depuis le dépôt <em>[PyPI]</em> (pypi.org) : il faut une connexion Internet lors de l&#x27;installation. Derrière un proxy d&#x27;entreprise, on indique le proxy par les variables d&#x27;environnement <strong><em>[HTTP_PROXY]</em></strong> et <strong><em>[HTTPS_PROXY]</em></strong>, ou par l&#x27;option <strong><em>[--proxy]</em></strong> de <em>[pip]</em>.</p>
+<p>Un environnement virtuel est un dossier qui contient une copie légère de l&#x27;interpréteur <em>[Python]</em> et ses propres bibliothèques : chaque projet a les siennes, dans les versions qu&#x27;il demande, sans toucher à l&#x27;installation de <em>[Python]</em> ni aux autres projets. Les commandes utiles, dans le dossier d&#x27;un projet (celui qui contient <strong><em>[requirements.txt]</em></strong>) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="x">python -m venv .venv                 # créer l'environnement virtuel (dossier .venv)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="x">.venv\Scripts\activate               # l'activer (Windows)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="x">source .venv/bin/activate            # l'activer (Linux, macOS)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="x">pip install -r requirements.txt      # installer les bibliothèques du projet</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="x">pip list                             # les bibliothèques installées</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="x">pip freeze                           # la même liste, au format de requirements.txt</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="x">deactivate                           # quitter l'environnement</span>
+</code></pre></div></td></tr></table></div>
+<p>Sous <em>[Windows]</em>, <em>[PowerShell]</em> refuse parfois d&#x27;exécuter le script d&#x27;activation (« l&#x27;exécution de scripts est désactivée sur ce système ») : la commande <strong><em>[Set-ExecutionPolicy -Scope CurrentUser RemoteSigned]</em></strong> l&#x27;autorise pour l&#x27;utilisateur courant. On peut aussi se passer de l&#x27;activation, en appelant directement l&#x27;interpréteur de l&#x27;environnement : <strong><em>[.venv\Scripts\python manage.py runserver]</em></strong>.</p>
+<p>Le dossier <strong><em>[.venv]</em></strong> ne se copie pas d&#x27;une machine à l&#x27;autre (il contient des chemins absolus, et des programmes propres au système) : on le recrée par les commandes ci-dessus. C&#x27;est pourquoi il ne fait pas partie des codes du cours. Le dossier <strong><em>[exemples]</em></strong> a son environnement, partagé par les 28 exemples ; l&#x27;étude de cas a le sien.</p>
+<p>La bibliothèque <em>[mysqlclient]</em>, le pilote <em>[MySQL]</em> (exemple 28 et étude de cas), est écrite en C. Sous <em>[Windows]</em>, <em>[pip]</em> télécharge une version déjà compilée : rien à faire. Sous <em>[Linux]</em> et <em>[macOS]</em>, <em>[pip]</em> la compile, et a besoin pour cela des fichiers de développement de <em>[MySQL]</em> et d&#x27;un compilateur :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">default</span><span class="o">-</span><span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span>     <span class="c1"># Ubuntu, Debian</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">brew</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">client</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span>                                                    <span class="c1"># macOS</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">export</span> <span class="n">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">"$(brew --prefix)/opt/mysql-client/lib/pkgconfig"</span>                <span class="c1"># macOS, avant pip install</span>
+</code></pre></div></td></tr></table></div>
+<p>Sans eux, <strong><em>[pip install -r requirements.txt]</em></strong> échoue sur <em>[mysqlclient]</em>, avec un message qui parle de <strong><em>[pkg-config]</em></strong> ou de <strong><em>[mysql_config]</em></strong>.</p>
+<h2 id="133-installation-de-visual-studio-code">13.3. <span style="color: #2e74b5">Installation de Visual Studio Code</span></h2>
+<p><em>[Visual Studio Code]</em> se télécharge sur code.visualstudio.com. On y ajoute trois extensions (menu Affichage / Extensions) :</p>
+<ul>
+<li>Python (de Microsoft) : l&#x27;exécution et le débogage du code <em>[Python]</em>, la gestion des environnements virtuels. Elle installe avec elle l&#x27;extension Python Debugger ;</li>
+<li>Pylance (de Microsoft, installée elle aussi avec l&#x27;extension Python) : la complétion, la navigation dans le code (y compris celui de <em>[Django]</em>, dans le dossier <strong><em>[.venv]</em></strong>), le signalement des erreurs, la vérification des annotations de type ;</li>
+<li>Django (de Baptiste Darthenay) : la coloration syntaxique et des raccourcis pour les gabarits de <em>[Django]</em> (fichiers <strong><em>[.html]</em></strong> du dossier <strong><em>[templates]</em></strong>).</li>
+</ul>
+<p>On ouvre le dossier <strong><em>[exemples]</em></strong>, ou le dossier de l&#x27;étude de cas (menu Fichier / Ouvrir le dossier), puis on choisit l&#x27;interpréteur de l&#x27;environnement virtuel du dossier (palette des commandes, Ctrl+Maj+P, Python: Select Interpreter, puis celui de <strong><em>[.venv]</em></strong>). Le terminal intégré (menu Terminal / Nouveau terminal) active alors lui-même l&#x27;environnement, et permet de lancer les applications, et les commandes <strong><em>[python manage.py ...]</em></strong>, sans quitter l&#x27;éditeur.</p>
+<p>Pour exécuter une application pas à pas, on crée une configuration de débogage (menu Exécuter / Ajouter une configuration, puis Python Debugger et Django) : l&#x27;éditeur lance <strong><em>[manage.py runserver]</em></strong> sous le contrôle du débogueur, et s&#x27;arrête sur les points d&#x27;arrêt placés dans les vues.</p>
+<h2 id="134-installation-de-mysql-avec-laragon">13.4. <span style="color: #2e74b5">Installation de MySQL avec Laragon</span></h2>
+<p><em>[Laragon]</em> installe sous <em>[Windows]</em> un serveur <em>[MySQL]</em> prêt à l&#x27;emploi, avec l&#x27;outil d&#x27;administration <em>[HeidiSQL]</em> (cf. « Installation de Laragon », dans l&#x27;introduction). Après installation :</p>
+<ul>
+<li>le bouton Démarrer tout lance le serveur <em>[MySQL]</em>, sur le port 3306 ;</li>
+<li>l&#x27;utilisateur <strong><em>[root]</em></strong> n&#x27;a pas de mot de passe : ce sont les valeurs du réglage <strong><em>[DATABASES]</em></strong> de l&#x27;exemple 28 (<strong><em>[config/settings.py]</em></strong>), et des variables <strong><em>[DB_USER]</em></strong> et <strong><em>[DB_PASSWORD]</em></strong> du fichier <strong><em>[.env]</em></strong> de l&#x27;étude de cas ;</li>
+<li>le bouton Base de données ouvre <em>[HeidiSQL]</em>, où le menu Fichier / Exécuter un fichier SQL exécute les scripts <strong><em>[dbpersonnes.sql]</em></strong> (exemple 28) et <strong><em>[dbrdvmedecins2.sql]</em></strong> (étude de cas).</li>
+</ul>
+<p>Sous <em>[Linux]</em> ou <em>[macOS]</em>, on installera <em>[MySQL]</em> ou <em>[MariaDB]</em> avec le gestionnaire de paquets du système, et l&#x27;on exécutera les scripts avec le client en ligne de commande <strong><em>[mysql]</em></strong> (<strong><em>[mysql -u root &lt; database/dbrdvmedecins2.sql]</em></strong>). Le pilote <em>[mysqlclient]</em> et le moteur <em>[MySQL]</em> de <em>[Django]</em> fonctionnent avec les deux, sans aucun réglage. Sous <em>[Linux]</em>, le compte <strong><em>[root]</em></strong> de <em>[MariaDB]</em> est souvent configuré pour ne se connecter que par le compte système <strong><em>[root]</em></strong> (<strong><em>[sudo mysql]</em></strong>) : on crée alors un utilisateur pour les applications :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>sudo mysql -e "CREATE USER 'cours'@'localhost' IDENTIFIED BY 'cours'; GRANT ALL ON dbpersonnes.* TO 'cours'@'localhost'; GRANT ALL ON dbrdvmedecins2.* TO 'cours'@'localhost';"
+</code></pre></div></td></tr></table></div>
+<p>et on l&#x27;indique aux applications : les clés <strong><em>[USER]</em></strong> et <strong><em>[PASSWORD]</em></strong> du réglage <strong><em>[DATABASES]</em></strong> pour l&#x27;exemple 28, les lignes <strong><em>[DB_USER=cours]</em></strong> et <strong><em>[DB_PASSWORD=cours]</em></strong> du fichier <strong><em>[.env]</em></strong> pour l&#x27;étude de cas.</p>
+<h2 id="135-installation-de-curl">13.5. <span style="color: #2e74b5">Installation de curl</span></h2>
+<p><em>[curl]</em> est livré avec <em>[Windows]</em> 10 et 11, <em>[macOS]</em> et la plupart des distributions <em>[Linux]</em>. Sous <em>[PowerShell]</em>, il faut taper <strong><em>[curl.exe]</em></strong> et non <em>[curl]</em> : dans les anciennes versions de <em>[PowerShell]</em>, <em>[curl]</em> est un alias d&#x27;une autre commande (<strong><em>[Invoke-WebRequest]</em></strong>), dont les options sont différentes. Dans l&#x27;invite de commandes de <em>[Windows]</em> (<strong><em>[cmd]</em></strong>), les guillemets d&#x27;une chaîne JSON s&#x27;écrivent <strong><em>[\&quot;]</em></strong> (exemple 11), et une URL qui contient des <strong><em>[&amp;]</em></strong> doit être entourée de guillemets doubles.</p>
+<h2 id="136-loutil-django-admin">13.6. <span style="color: #2e74b5">L&#x27;outil django-admin</span></h2>
+<p><em>[Django]</em> installe une commande, <em>[django-admin]</em>, qui n&#x27;est pas nécessaire pour suivre ce document (les exemples sont fournis tout prêts), mais que l&#x27;on utilise pour commencer un nouveau projet. Le fichier <strong><em>[manage.py]</em></strong> de chaque projet est un <em>[django-admin]</em> qui connaît en plus les réglages du projet : dans un projet, on tape <strong><em>[python manage.py]</em></strong> plutôt que <em>[django-admin]</em>. Les commandes les plus utiles :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>django-admin startproject config .        # un nouveau projet, dont la configuration est le paquet config
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>python manage.py startapp pages           # une nouvelle application, le dossier pages
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>python manage.py runserver 8000           # le serveur de développement
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>python manage.py check                    # vérifier le projet (réglages, routes, modèles...)
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>python manage.py check --deploy           # vérifier les réglages de sécurité d'une mise en production
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>python manage.py shell                    # une console Python, avec Django chargé
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>python manage.py dbshell                  # le client de la base de données, avec les réglages du projet
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>python manage.py inspectdb                # écrire les modèles d'une base existante (à relire et corriger)
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>python manage.py makemessages -l en       # relever les textes à traduire (fichier .po)
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>python manage.py compilemessages          # compiler les dictionnaires (fichiers .mo)
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>python manage.py collectstatic            # rassembler les fichiers statiques pour la production
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>python manage.py diffsettings             # les réglages qui diffèrent des valeurs par défaut
+</code></pre></div></td></tr></table></div>
+<p>Le point final de la commande <strong><em>[startproject]</em></strong> crée le projet dans le dossier courant (sans lui, dans un nouveau dossier <strong><em>[config]</em></strong>). Une application créée par <strong><em>[startapp]</em></strong> doit être ajoutée à la liste <strong><em>[INSTALLED_APPS]</em></strong> des réglages. La commande <strong><em>[inspectdb]</em></strong> est une aide précieuse pour une base existante, comme celle de l&#x27;étude de cas : elle lit les tables, et écrit un premier jet des modèles, avec <strong><em>[managed = False]</em></strong> ; il reste à nommer les relations, à choisir les types, et à ajouter les méthodes. Les commandes <strong><em>[makemigrations]</em></strong> et <strong><em>[migrate]</em></strong>, qui créent et font évoluer les tables d&#x27;après les modèles, n&#x27;ont pas servi dans ce document : ses bases sont créées par des scripts SQL, partagés avec les autres versions de l&#x27;application.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Ce tutoriel, rédigé par l’IA d’Anthropic <strong>Claude</strong> à la demande de <strong>Serge Tahé</strong>, est mis à la disposition du public selon les termes de la
+        <em>licence Creative Commons Attribution – Pas d’utilisation commerciale –
+        ShareAlike 3.0 Unported</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
