@@ -894,7 +894,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.venv\Scripts\activate
 </code></pre></div>
 <p>pour activer cet environnement dans le terminal (sous <em>[Linux]</em> et <em>[macOS]</em> : <strong><em>[source .venv/bin/activate]</em></strong>). L&#x27;invite du terminal commence alors par <strong><em>[(.venv)]</em></strong> ;</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">pip install -r requirements.txt</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip install -r requirements.txt
 </code></pre></div>
 <p>pour installer les bibliothèques <em>[Python]</em> nécessaires à l&#x27;étude de cas (<em>[Django]</em>, <em>[mysqlclient]</em>, <em>[PyJWT]</em>, <em>[bcrypt]</em>) ;</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python manage.py runserver 8081
@@ -1003,9 +1003,9 @@
 </ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="x">python -m venv .venv</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="x">.venv\Scripts\activate</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="x">pip install -r requirements.txt</span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>python -m venv .venv
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>.venv\Scripts\activate
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>pip install -r requirements.txt
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>sous <em>[Linux]</em> et <em>[macOS]</em>, la deuxième commande s&#x27;écrit <strong><em>[source .venv/bin/activate]</em></strong>. <em>[Visual Studio Code]</em> propose, par une fenêtre, d&#x27;utiliser cet environnement pour le dossier : on accepte ; les terminaux ouverts ensuite l&#x27;activeront eux-mêmes ;</li>
@@ -1024,14 +1024,14 @@
 <span class="normal"><a href="#__codelineno-10-5">5</a></span>
 <span class="normal"><a href="#__codelineno-10-6">6</a></span>
 <span class="normal"><a href="#__codelineno-10-7">7</a></span>
-<span class="normal"><a href="#__codelineno-10-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">Watching</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">changes</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">StatReloader</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">Performing</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">checks</span><span class="p">...</span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>Watching for file changes with StatReloader
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>Performing system checks...
 <a id="__codelineno-10-3" name="__codelineno-10-3"></a>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">System</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">identified</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="nf">issues</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="n">silenced</span><span class="p">).</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">September</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">2026</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">19</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">12</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">Django</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="mf">6.1.1</span><span class="p">,</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">settings</span><span class="w"> </span><span class="err">'</span><span class="n">config</span><span class="p">.</span><span class="n">settings</span><span class="err">'</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">Starting</span><span class="w"> </span><span class="n">development</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">http</span><span class="p">:</span><span class="c1">//127.0.0.1:8081/</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="n">Quit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">CTRL</span><span class="o">-</span><span class="n">BREAK</span><span class="p">.</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>System check identified no issues (0 silenced).
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>September 27, 2026 - 19:30:12
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>Django version 6.1.1, using settings 'config.settings'
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>Starting development server at http://127.0.0.1:8081/
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>Quit the server with CTRL-BREAK.
 </code></pre></div></td></tr></table></div>
 <p>Le serveur de développement écoute sur le port 8081 de la machine (<strong><em>[127.0.0.1]</em></strong>, c&#x27;est-à-dire <strong><em>[localhost]</em></strong>). Chaque requête reçue sera signalée dans la console, ainsi que les ordres SQL envoyés à la base ;</p>
 <ul>
@@ -1060,16 +1060,16 @@
 <span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-11-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="x">exemples/</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="x">├── 01-structure/</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="x">├── 02-routage/</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="x">├── ...</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="x">├── 28-couches/</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="x">├── commun/</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="x">│   ├── static/</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="x">│   │   └── bootstrap/</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="x">│   └── README.md</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="x">└── requirements.txt</span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>exemples/
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>├── 01-structure/
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>├── 02-routage/
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>├── ...
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>├── 28-couches/
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>├── commun/
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>│   ├── static/
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>│   │   └── bootstrap/
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>│   └── README.md
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>└── requirements.txt
 </code></pre></div></td></tr></table></div>
 <p>Chaque exemple est une petite application <em>[Django]</em>, que l&#x27;on exécute seule. Tous les exemples utilisent les mêmes bibliothèques, décrites par le fichier <strong><em>[exemples/requirements.txt]</em></strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
@@ -1077,12 +1077,12 @@
 <span class="normal"><a href="#__codelineno-12-3">3</a></span>
 <span class="normal"><a href="#__codelineno-12-4">4</a></span>
 <span class="normal"><a href="#__codelineno-12-5">5</a></span>
-<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="x"># les bibliothèques des exemples, installées une fois pour toutes dans l'environnement</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="x"># virtuel du dossier exemples : pip install -r requirements.txt</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="x">Django==6.1.1</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="x">mysqlclient==2.3.0</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="x">PyJWT==2.15.0</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="x">Babel==2.18.0</span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a># les bibliothèques des exemples, installées une fois pour toutes dans l'environnement
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a># virtuel du dossier exemples : pip install -r requirements.txt
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>Django==6.1.1
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>mysqlclient==2.3.0
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>PyJWT==2.15.0
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>Babel==2.18.0
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 1-2 : des commentaires ; en <em>[Python]</em>, comme dans ce fichier, un commentaire va de <strong><em>[#]</em></strong> jusqu&#x27;à la fin de la ligne ;</li>
@@ -1091,9 +1091,9 @@
 <p><em>[Python]</em> ne connaît qu&#x27;un seul dossier de bibliothèques par interpréteur. Pour que chaque projet ait les siennes, dans les versions qui lui conviennent, on crée un environnement virtuel : un dossier qui contient une copie légère de l&#x27;interpréteur, et son propre dossier de bibliothèques (<strong><em>[Lib/site-packages]</em></strong> sous <em>[Windows]</em>, <strong><em>[lib/python3.13/site-packages]</em></strong> ailleurs). Pour exécuter les exemples, on crée un environnement virtuel et on y installe leurs bibliothèques, une fois pour toutes, dans un terminal ouvert sur le dossier <strong><em>[exemples]</em></strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
 <span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="x">python -m venv .venv</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="x">.venv\Scripts\activate</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="x">pip install -r requirements.txt</span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>python -m venv .venv
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>.venv\Scripts\activate
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>pip install -r requirements.txt
 </code></pre></div></td></tr></table></div>
 <p><strong><em>[python -m venv .venv]</em></strong> exécute le module <em>[venv]</em> de <em>[Python]</em>, qui crée l&#x27;environnement dans le dossier <strong><em>[.venv]</em></strong>. Le script <strong><em>[activate]</em></strong> (sous <em>[Linux]</em> et <em>[macOS]</em> : <strong><em>[source .venv/bin/activate]</em></strong>) modifie le PATH du terminal : les commandes <strong><em>[python]</em></strong> et <em>[pip]</em> désignent alors celles de l&#x27;environnement, et l&#x27;invite commence par <strong><em>[(.venv)]</em></strong>. <strong><em>[pip install -r requirements.txt]</em></strong> installe les bibliothèques du fichier. L&#x27;environnement <strong><em>[exemples/.venv]</em></strong> est partagé par les 28 exemples : on l&#x27;active dans chaque terminal où l&#x27;on veut en exécuter un. La commande <strong><em>[pip list]</em></strong> affiche les bibliothèques installées, <strong><em>[deactivate]</em></strong> désactive l&#x27;environnement. Le dossier <strong><em>[commun]</em></strong> contient le framework CSS <em>[Bootstrap]</em> (<strong><em>[commun/static/bootstrap]</em></strong>), partagé par les exemples qui mettent leurs pages en forme (à partir de l&#x27;exemple 15).</p>
 <p>Les exemples ont presque tous la même structure, celle d&#x27;un projet <em>[Django]</em> ordinaire, réduit à l&#x27;essentiel. Par exemple, celle de l&#x27;exemple 13 :</p>
@@ -1114,12 +1114,12 @@
 <span class="normal"><a href="#__codelineno-14-15">15</a></span>
 <span class="normal"><a href="#__codelineno-14-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>13-premiere-vue/
 <a id="__codelineno-14-2" name="__codelineno-14-2"></a>├── config/
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>│   ├── <span class="gs">__init__</span>.py
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>│   ├── __init__.py
 <a id="__codelineno-14-4" name="__codelineno-14-4"></a>│   ├── settings.py
 <a id="__codelineno-14-5" name="__codelineno-14-5"></a>│   ├── urls.py
 <a id="__codelineno-14-6" name="__codelineno-14-6"></a>│   └── wsgi.py
 <a id="__codelineno-14-7" name="__codelineno-14-7"></a>├── pages/
-<a id="__codelineno-14-8" name="__codelineno-14-8"></a>│   ├── <span class="gs">__init__</span>.py
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>│   ├── __init__.py
 <a id="__codelineno-14-9" name="__codelineno-14-9"></a>│   ├── modeles.py
 <a id="__codelineno-14-10" name="__codelineno-14-10"></a>│   ├── urls.py
 <a id="__codelineno-14-11" name="__codelineno-14-11"></a>│   └── views.py

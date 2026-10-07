@@ -799,22 +799,22 @@
 <span class="normal"><a href="#__codelineno-2-4">4</a></span>
 <span class="normal"><a href="#__codelineno-2-5">5</a></span>
 <span class="normal"><a href="#__codelineno-2-6">6</a></span>
-<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="x">python -m venv .venv                 # créer l'environnement virtuel (dossier .venv)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="x">.venv\Scripts\activate               # l'activer (Windows)</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="x">source .venv/bin/activate            # l'activer (Linux, macOS)</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="x">pip install -r requirements.txt      # installer les bibliothèques du projet</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="x">pip list                             # les bibliothèques installées</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="x">pip freeze                           # la même liste, au format de requirements.txt</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="x">deactivate                           # quitter l'environnement</span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>python -m venv .venv                 # créer l'environnement virtuel (dossier .venv)
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>.venv\Scripts\activate               # l'activer (Windows)
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>source .venv/bin/activate            # l'activer (Linux, macOS)
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>pip install -r requirements.txt      # installer les bibliothèques du projet
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>pip list                             # les bibliothèques installées
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>pip freeze                           # la même liste, au format de requirements.txt
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>deactivate                           # quitter l'environnement
 </code></pre></div></td></tr></table></div>
 <p>Sous <em>[Windows]</em>, <em>[PowerShell]</em> refuse parfois d&#x27;exécuter le script d&#x27;activation (« l&#x27;exécution de scripts est désactivée sur ce système ») : la commande <strong><em>[Set-ExecutionPolicy -Scope CurrentUser RemoteSigned]</em></strong> l&#x27;autorise pour l&#x27;utilisateur courant. On peut aussi se passer de l&#x27;activation, en appelant directement l&#x27;interpréteur de l&#x27;environnement : <strong><em>[.venv\Scripts\python manage.py runserver]</em></strong>.</p>
 <p>Le dossier <strong><em>[.venv]</em></strong> ne se copie pas d&#x27;une machine à l&#x27;autre (il contient des chemins absolus, et des programmes propres au système) : on le recrée par les commandes ci-dessus. C&#x27;est pourquoi il ne fait pas partie des codes du cours. Le dossier <strong><em>[exemples]</em></strong> a son environnement, partagé par les 28 exemples ; l&#x27;étude de cas a le sien.</p>
 <p>La bibliothèque <em>[mysqlclient]</em>, le pilote <em>[MySQL]</em> (exemple 28 et étude de cas), est écrite en C. Sous <em>[Windows]</em>, <em>[pip]</em> télécharge une version déjà compilée : rien à faire. Sous <em>[Linux]</em> et <em>[macOS]</em>, <em>[pip]</em> la compile, et a besoin pour cela des fichiers de développement de <em>[MySQL]</em> et d&#x27;un compilateur :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">default</span><span class="o">-</span><span class="n">libmysqlclient</span><span class="o">-</span><span class="n">dev</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span>     <span class="c1"># Ubuntu, Debian</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">brew</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">client</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span>                                                    <span class="c1"># macOS</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">export</span> <span class="n">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">"$(brew --prefix)/opt/mysql-client/lib/pkgconfig"</span>                <span class="c1"># macOS, avant pip install</span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo apt install python3-dev default-libmysqlclient-dev build-essential pkg-config     # Ubuntu, Debian
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>brew install mysql-client pkg-config                                                    # macOS
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>export PKG_CONFIG_PATH="$(brew --prefix)/opt/mysql-client/lib/pkgconfig"                # macOS, avant pip install
 </code></pre></div></td></tr></table></div>
 <p>Sans eux, <strong><em>[pip install -r requirements.txt]</em></strong> échoue sur <em>[mysqlclient]</em>, avec un message qui parle de <strong><em>[pkg-config]</em></strong> ou de <strong><em>[mysql_config]</em></strong>.</p>
 <h2 id="133-installation-de-visual-studio-code">13.3. <span style="color: #2e74b5">Installation de Visual Studio Code</span></h2>

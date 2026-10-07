@@ -1078,16 +1078,16 @@
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
 <span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="nx">OK</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="kt">text</span><span class="o">/</span><span class="nx">html</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>HTTP/1.1 200 OK
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>Content-Type: text/html; charset=utf-8
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nx">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">martin</span><span class="p">],</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">str</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="nx">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">None</span><span class="p">],</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">NoneType</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>nom = [martin], de type str
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>nom = [None], de type NoneType
 </code></pre></div></td></tr></table></div>
 <p>Les guillemets autour de l&#x27;URL sont nécessaires dans un terminal : sans eux, le shell interpréterait le <strong><em>[&amp;]</em></strong> (qui lance une commande en arrière-plan sous <em>[Linux]</em>) et le <strong><em>[?]</em></strong>. La valeur <strong><em>[None]</em></strong>, insérée dans une f-chaîne, devient le texte <strong><em>[None]</em></strong>. Une valeur contenant des espaces ou des caractères spéciaux doit être encodée dans l&#x27;URL : l&#x27;espace devient <strong><em>[%20]</em></strong> (ou <strong><em>[+]</em></strong>), le <strong><em>[&amp;]</em></strong> devient <strong><em>[%26]</em></strong> (sinon, il séparerait deux paramètres). Le navigateur le fait tout seul ; avec <em>[curl]</em>, il faut l&#x27;écrire. <em>[Django]</em> décode la valeur avant que la vue ne la lise :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>curl "http://localhost:8000/parametres/action01?nom=jean%20dupont%20%26%20fils"
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nx">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">jean</span><span class="w"> </span><span class="nx">dupont</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">fils</span><span class="p">],</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">str</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>nom = [jean dupont &amp; fils], de type str
 </code></pre></div></td></tr></table></div>
 <p>Un paramètre présent mais vide (<strong><em>[?nom=]</em></strong>) donne la chaîne vide, et non <strong><em>[None]</em></strong> : la vue peut distinguer les deux cas. La valeur de l&#x27;âge, puis la conversion à la main, réussie, sans paramètre et ratée :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
@@ -1109,18 +1109,18 @@
 <span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-6-10">10</a></span>
 <span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">42</span><span class="p">],</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">str</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nx">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">42</span><span class="p">],</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="kr">int</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">400</span><span class="w"> </span><span class="nx">Bad</span><span class="w"> </span><span class="nx">Request</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="kt">text</span><span class="o">/</span><span class="nx">html</span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>age = [42], de type str
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>age = [42], de type int
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>HTTP/1.1 400 Bad Request
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>Content-Type: text/html
 <a id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="o">&lt;!</span><span class="nx">DOCTYPE</span><span class="w"> </span><span class="nx">html</span><span class="o">&gt;</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">...</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">400</span><span class="w"> </span><span class="nx">Bad</span><span class="w"> </span><span class="nx">Request</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="kt">text</span><span class="o">/</span><span class="nx">html</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>&lt;!DOCTYPE html&gt;
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>...
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>HTTP/1.1 400 Bad Request
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>Content-Type: text/html
 <a id="__codelineno-6-10" name="__codelineno-6-10"></a>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="o">&lt;!</span><span class="nx">DOCTYPE</span><span class="w"> </span><span class="nx">html</span><span class="o">&gt;</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="p">...</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>&lt;!DOCTYPE html&gt;
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>...
 </code></pre></div></td></tr></table></div>
 <p>La valeur <strong><em>[42]</em></strong> reçue par la vue 02 est une chaîne ; celle de la vue 03, convertie, un entier. La fonction <strong><em>[int]</em></strong> est tolérante aux espaces : <strong><em>[?age=%2042]</em></strong> (« 42 » précédé d&#x27;un espace) donne aussi 42. Les deux erreurs produisent une réponse 400. En mode debug, c&#x27;est la page d&#x27;erreur de <em>[Django]</em>, avec notre message :</p>
 <p><img src="images/10000000000002BE00000173800FB1A5.png" width="428" height="226" style="width:11.322cm;height:5.985cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE00000173800FB1A5.png" /></p>
@@ -1143,10 +1143,10 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span>
-<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>{
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    "nom": "durand",
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    "age": "42"
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a>}
+<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"durand"</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42"</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Le paramètre <strong><em>[nom]</em></strong> ne garde, dans le dictionnaire, que sa dernière valeur. Nous verrons à l&#x27;exemple 10 que <strong><em>[request.GET]</em></strong>, lui, les a toutes gardées. L&#x27;âge est resté une chaîne (<strong><em>[&quot;42&quot;]</em></strong>, entre guillemets dans le JSON) : aucune conversion n&#x27;a été demandée. Dans un navigateur (ici <em>[Chromium]</em>), le JSON est présenté tel que le serveur l&#x27;a mis en forme ; la case « Pretty-print » le présenterait indenté s&#x27;il ne l&#x27;était pas. La barre d&#x27;adresse montre au passage l&#x27;encodage des caractères accentués dans l&#x27;URL (<strong><em>[é]</em></strong> devient <strong><em>[%C3%A9]</em></strong>, ses deux octets en <em>[UTF-8]</em>) :</p>
 <p><img src="images/10000000000002BE000000AB8C78FC9C.png" width="428" height="104" style="width:11.322cm;height:2.759cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE000000AB8C78FC9C.png" /></p>
@@ -1461,21 +1461,21 @@
 <span class="normal"><a href="#__codelineno-18-12">12</a></span>
 <span class="normal"><a href="#__codelineno-18-13">13</a></span>
 <span class="normal"><a href="#__codelineno-18-14">14</a></span>
-<span class="normal"><a href="#__codelineno-18-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>{
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a>    "recu": {
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a>        "nom": "  martin ",
-<a id="__codelineno-18-4" name="__codelineno-18-4"></a>        "age": "42",
-<a id="__codelineno-18-5" name="__codelineno-18-5"></a>        "titre": "Mme",
-<a id="__codelineno-18-6" name="__codelineno-18-6"></a>        "email": "jean.martin@exemple.fr"
-<a id="__codelineno-18-7" name="__codelineno-18-7"></a>    },
-<a id="__codelineno-18-8" name="__codelineno-18-8"></a>    "personne": {
-<a id="__codelineno-18-9" name="__codelineno-18-9"></a>        "nom": "martin",
-<a id="__codelineno-18-10" name="__codelineno-18-10"></a>        "age": 42,
-<a id="__codelineno-18-11" name="__codelineno-18-11"></a>        "titre": "Mme",
-<a id="__codelineno-18-12" name="__codelineno-18-12"></a>        "email": "jean.martin@exemple.fr"
-<a id="__codelineno-18-13" name="__codelineno-18-13"></a>    },
-<a id="__codelineno-18-14" name="__codelineno-18-14"></a>    "typeAge": "int"
-<a id="__codelineno-18-15" name="__codelineno-18-15"></a>}
+<span class="normal"><a href="#__codelineno-18-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="nt">"recu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">        </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"  martin "</span><span class="p">,</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">        </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42"</span><span class="p">,</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">        </span><span class="nt">"titre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mme"</span><span class="p">,</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="w">        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jean.martin@exemple.fr"</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="w">    </span><span class="nt">"personne"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="w">        </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"martin"</span><span class="p">,</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="w">        </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="w">        </span><span class="nt">"titre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mme"</span><span class="p">,</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="w">        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jean.martin@exemple.fr"</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="w">    </span><span class="nt">"typeAge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"int"</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Les espaces qui entouraient le nom ont été retirés par le champ : c&#x27;est la valeur nettoyée (<strong><em>[cleaned_data]</em></strong>) que reçoit la vue. Un nom fait seulement d&#x27;espaces serait donc vide, et refusé comme absent. Aucun paramètre maintenant : les trois champs obligatoires manquent.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>curl -i http://localhost:8000/personnes/action01
@@ -1543,27 +1543,27 @@
 <span class="normal"><a href="#__codelineno-22-18">18</a></span>
 <span class="normal"><a href="#__codelineno-22-19">19</a></span>
 <span class="normal"><a href="#__codelineno-22-20">20</a></span>
-<span class="normal"><a href="#__codelineno-22-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>{
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a>    "statut": 400,
-<a id="__codelineno-22-3" name="__codelineno-22-3"></a>    "erreurs": [
-<a id="__codelineno-22-4" name="__codelineno-22-4"></a>        {
-<a id="__codelineno-22-5" name="__codelineno-22-5"></a>            "champ": "nom",
-<a id="__codelineno-22-6" name="__codelineno-22-6"></a>            "message": "Assurez-vous que cette valeur comporte au moins 2 caractères (actuellement 1)."
-<a id="__codelineno-22-7" name="__codelineno-22-7"></a>        },
-<a id="__codelineno-22-8" name="__codelineno-22-8"></a>        {
-<a id="__codelineno-22-9" name="__codelineno-22-9"></a>            "champ": "age",
-<a id="__codelineno-22-10" name="__codelineno-22-10"></a>            "message": "Assurez-vous que cette valeur est inférieure ou égale à 150."
-<a id="__codelineno-22-11" name="__codelineno-22-11"></a>        },
-<a id="__codelineno-22-12" name="__codelineno-22-12"></a>        {
-<a id="__codelineno-22-13" name="__codelineno-22-13"></a>            "champ": "titre",
-<a id="__codelineno-22-14" name="__codelineno-22-14"></a>            "message": "Sélectionnez un choix valide. Mlle n’en fait pas partie."
-<a id="__codelineno-22-15" name="__codelineno-22-15"></a>        },
-<a id="__codelineno-22-16" name="__codelineno-22-16"></a>        {
-<a id="__codelineno-22-17" name="__codelineno-22-17"></a>            "champ": "email",
-<a id="__codelineno-22-18" name="__codelineno-22-18"></a>            "message": "Saisissez une adresse de courriel valide."
-<a id="__codelineno-22-19" name="__codelineno-22-19"></a>        }
-<a id="__codelineno-22-20" name="__codelineno-22-20"></a>    ]
-<a id="__codelineno-22-21" name="__codelineno-22-21"></a>}
+<span class="normal"><a href="#__codelineno-22-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="p">{</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">    </span><span class="nt">"statut"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="nt">"erreurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nom"</span><span class="p">,</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assurez-vous que cette valeur comporte au moins 2 caractères (actuellement 1)."</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"age"</span><span class="p">,</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assurez-vous que cette valeur est inférieure ou égale à 150."</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"titre"</span><span class="p">,</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sélectionnez un choix valide. Mlle n’en fait pas partie."</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saisissez une adresse de courriel valide."</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-22-21" name="__codelineno-22-21"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Toutes les erreurs sont signalées en une fois, ce qui permet à l&#x27;utilisateur de tout corriger d&#x27;un coup. Un âge qui n&#x27;est pas un nombre, enfin :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>curl "http://localhost:8000/personnes/action01?nom=m&amp;age=abc&amp;titre=Mlle&amp;email=xx"
@@ -1588,27 +1588,27 @@
 <span class="normal"><a href="#__codelineno-24-18">18</a></span>
 <span class="normal"><a href="#__codelineno-24-19">19</a></span>
 <span class="normal"><a href="#__codelineno-24-20">20</a></span>
-<span class="normal"><a href="#__codelineno-24-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>{
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a>    "statut": 400,
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a>    "erreurs": [
-<a id="__codelineno-24-4" name="__codelineno-24-4"></a>        {
-<a id="__codelineno-24-5" name="__codelineno-24-5"></a>            "champ": "nom",
-<a id="__codelineno-24-6" name="__codelineno-24-6"></a>            "message": "Assurez-vous que cette valeur comporte au moins 2 caractères (actuellement 1)."
-<a id="__codelineno-24-7" name="__codelineno-24-7"></a>        },
-<a id="__codelineno-24-8" name="__codelineno-24-8"></a>        {
-<a id="__codelineno-24-9" name="__codelineno-24-9"></a>            "champ": "age",
-<a id="__codelineno-24-10" name="__codelineno-24-10"></a>            "message": "Saisissez un nombre entier."
-<a id="__codelineno-24-11" name="__codelineno-24-11"></a>        },
-<a id="__codelineno-24-12" name="__codelineno-24-12"></a>        {
-<a id="__codelineno-24-13" name="__codelineno-24-13"></a>            "champ": "titre",
-<a id="__codelineno-24-14" name="__codelineno-24-14"></a>            "message": "Sélectionnez un choix valide. Mlle n’en fait pas partie."
-<a id="__codelineno-24-15" name="__codelineno-24-15"></a>        },
-<a id="__codelineno-24-16" name="__codelineno-24-16"></a>        {
-<a id="__codelineno-24-17" name="__codelineno-24-17"></a>            "champ": "email",
-<a id="__codelineno-24-18" name="__codelineno-24-18"></a>            "message": "Saisissez une adresse de courriel valide."
-<a id="__codelineno-24-19" name="__codelineno-24-19"></a>        }
-<a id="__codelineno-24-20" name="__codelineno-24-20"></a>    ]
-<a id="__codelineno-24-21" name="__codelineno-24-21"></a>}
+<span class="normal"><a href="#__codelineno-24-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">    </span><span class="nt">"statut"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="nt">"erreurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nom"</span><span class="p">,</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assurez-vous que cette valeur comporte au moins 2 caractères (actuellement 1)."</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"age"</span><span class="p">,</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saisissez un nombre entier."</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"titre"</span><span class="p">,</span>
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sélectionnez un choix valide. Mlle n’en fait pas partie."</span>
+<a id="__codelineno-24-15" name="__codelineno-24-15"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-24-16" name="__codelineno-24-16"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-24-17" name="__codelineno-24-17"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span>
+<a id="__codelineno-24-18" name="__codelineno-24-18"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saisissez une adresse de courriel valide."</span>
+<a id="__codelineno-24-19" name="__codelineno-24-19"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-24-20" name="__codelineno-24-20"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-24-21" name="__codelineno-24-21"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Cette fois encore, les quatre erreurs sont signalées : l&#x27;échec de la conversion de l&#x27;âge est une erreur du champ <strong><em>[age]</em></strong>, comme les autres. C&#x27;est une différence avec <em>[Symfony]</em>, dont le cours montrait qu&#x27;une conversion ratée empêchait toute validation, parce qu&#x27;elle empêchait de construire l&#x27;objet : un formulaire <em>[Django]</em>, lui, convertit et valide chaque champ séparément.</p>
 <h2 id="33-exemple-09-la-validation-faite-par-la-vue">3.3. <span style="color: #2e74b5">Exemple 09 : la validation faite par la vue</span></h2>
@@ -1625,7 +1625,7 @@
 <a id="__codelineno-25-2" name="__codelineno-25-2"></a>├── config/
 <a id="__codelineno-25-3" name="__codelineno-25-3"></a>│   └── ...
 <a id="__codelineno-25-4" name="__codelineno-25-4"></a>├── personnes/
-<a id="__codelineno-25-5" name="__codelineno-25-5"></a>│   ├── <span class="gs">__init__</span>.py
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>│   ├── __init__.py
 <a id="__codelineno-25-6" name="__codelineno-25-6"></a>│   ├── modeles.py
 <a id="__codelineno-25-7" name="__codelineno-25-7"></a>│   ├── urls.py
 <a id="__codelineno-25-8" name="__codelineno-25-8"></a>│   └── views.py
@@ -1747,9 +1747,9 @@
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
 <span class="normal"><a href="#__codelineno-29-2">2</a></span>
-<span class="normal"><a href="#__codelineno-29-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Le formulaire contient des erreurs :<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">ul</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span>nom : Assurez-vous que cette valeur comporte au moins 2 caractères (actuellement 1).<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span>age : un nombre entier est attendu<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span>titre : valeur inconnue<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span>email : Saisissez une adresse de courriel valide.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Bienvenue Mr <span class="ni">&amp;lt;</span>b<span class="ni">&amp;gt;</span>martin<span class="ni">&amp;lt;</span>/b<span class="ni">&amp;gt;</span> (42 ans)<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Le formulaire contient des erreurs :<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">ul</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span>nom : le champ est obligatoire<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span>age : Assurez-vous que cette valeur est inférieure ou égale à 150.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>&lt;p&gt;Le formulaire contient des erreurs :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;nom : Assurez-vous que cette valeur comporte au moins 2 caractères (actuellement 1).&lt;/li&gt;&lt;li&gt;age : un nombre entier est attendu&lt;/li&gt;&lt;li&gt;titre : valeur inconnue&lt;/li&gt;&lt;li&gt;email : Saisissez une adresse de courriel valide.&lt;/li&gt;&lt;/ul&gt;
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>&lt;p&gt;Bienvenue Mr &amp;lt;b&amp;gt;martin&amp;lt;/b&amp;gt; (42 ans)&lt;/p&gt;
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>&lt;p&gt;Le formulaire contient des erreurs :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;nom : le champ est obligatoire&lt;/li&gt;&lt;li&gt;age : Assurez-vous que cette valeur est inférieure ou égale à 150.&lt;/li&gt;&lt;/ul&gt;
 </code></pre></div></td></tr></table></div>
 <p>Le nom <strong><em>[&lt;b&gt;martin&lt;/b&gt;]</em></strong> (encodé <strong><em>[%3Cb%3E...]</em></strong> dans l&#x27;URL) est affiché tel quel, sans être mis en gras : ses balises ont été neutralisées. Remarquons que la réponse est cette fois un code 200 : c&#x27;est la vue qui a choisi de rendre une page normale contenant les erreurs.</p>
 <h2 id="34-exemple-10-les-parametres-multiples">3.4. <span style="color: #2e74b5">Exemple 10 : les paramètres multiples</span></h2>
@@ -1851,17 +1851,17 @@
 <span class="normal"><a href="#__codelineno-32-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-32-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-32-10">10</a></span>
-<span class="normal"><a href="#__codelineno-32-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>{
-<a id="__codelineno-32-2" name="__codelineno-32-2"></a>    "couleur": "vert",
-<a id="__codelineno-32-3" name="__codelineno-32-3"></a>    "brut": "couleur=rouge&amp;couleur=vert"
-<a id="__codelineno-32-4" name="__codelineno-32-4"></a>}
-<a id="__codelineno-32-5" name="__codelineno-32-5"></a>{
-<a id="__codelineno-32-6" name="__codelineno-32-6"></a>    "couleur": [
-<a id="__codelineno-32-7" name="__codelineno-32-7"></a>        "rouge",
-<a id="__codelineno-32-8" name="__codelineno-32-8"></a>        "vert"
-<a id="__codelineno-32-9" name="__codelineno-32-9"></a>    ],
-<a id="__codelineno-32-10" name="__codelineno-32-10"></a>    "nombre": 2
-<a id="__codelineno-32-11" name="__codelineno-32-11"></a>}
+<span class="normal"><a href="#__codelineno-32-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="p">{</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="w">    </span><span class="nt">"couleur"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vert"</span><span class="p">,</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="w">    </span><span class="nt">"brut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"couleur=rouge&amp;couleur=vert"</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="p">}</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="p">{</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="w">    </span><span class="nt">"couleur"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="w">        </span><span class="s2">"rouge"</span><span class="p">,</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a><span class="w">        </span><span class="s2">"vert"</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10"></a><span class="w">    </span><span class="nt">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Côté HTML, il suffit de donner le même nom aux cases à cocher d&#x27;un groupe (les formulaires de <em>[Django]</em> le feront pour nous, exemple 18). C&#x27;est une différence avec <em>[PHP]</em>, que le lecteur du cours <em>[Symfony]</em> a rencontrée : <em>[PHP]</em> ne garde que la dernière valeur d&#x27;un paramètre répété, sauf si son nom se termine par des crochets (<strong><em>[couleur[]]</em></strong>). <em>[Django]</em>, comme <em>[Flask]</em>, <em>[Spring MVC]</em> ou <strong><em>[ASP.NET Core]</em></strong>, conserve toutes les valeurs, sans crochets. Des crochets ne sont d&#x27;ailleurs pour lui que deux caractères du nom : <strong><em>[?couleur[]=rouge]</em></strong> définit un paramètre nommé <strong><em>[couleur[]]</em></strong>, que <strong><em>[getlist(&quot;couleur&quot;)]</em></strong> ne voit pas.</p>
 <p>La validation, réussie, puis ratée pour une couleur inconnue, puis pour une liste vide :</p>
@@ -1895,31 +1895,31 @@
 <span class="normal"><a href="#__codelineno-34-22">22</a></span>
 <span class="normal"><a href="#__codelineno-34-23">23</a></span>
 <span class="normal"><a href="#__codelineno-34-24">24</a></span>
-<span class="normal"><a href="#__codelineno-34-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a>{
-<a id="__codelineno-34-2" name="__codelineno-34-2"></a>    "couleurs": [
-<a id="__codelineno-34-3" name="__codelineno-34-3"></a>        "rouge",
-<a id="__codelineno-34-4" name="__codelineno-34-4"></a>        "bleu"
-<a id="__codelineno-34-5" name="__codelineno-34-5"></a>    ],
-<a id="__codelineno-34-6" name="__codelineno-34-6"></a>    "valide": true,
-<a id="__codelineno-34-7" name="__codelineno-34-7"></a>    "erreurs": []
-<a id="__codelineno-34-8" name="__codelineno-34-8"></a>}
-<a id="__codelineno-34-9" name="__codelineno-34-9"></a>{
-<a id="__codelineno-34-10" name="__codelineno-34-10"></a>    "couleurs": [
-<a id="__codelineno-34-11" name="__codelineno-34-11"></a>        "rouge",
-<a id="__codelineno-34-12" name="__codelineno-34-12"></a>        "noir"
-<a id="__codelineno-34-13" name="__codelineno-34-13"></a>    ],
-<a id="__codelineno-34-14" name="__codelineno-34-14"></a>    "valide": false,
-<a id="__codelineno-34-15" name="__codelineno-34-15"></a>    "erreurs": [
-<a id="__codelineno-34-16" name="__codelineno-34-16"></a>        "noir : valeur inconnue"
-<a id="__codelineno-34-17" name="__codelineno-34-17"></a>    ]
-<a id="__codelineno-34-18" name="__codelineno-34-18"></a>}
-<a id="__codelineno-34-19" name="__codelineno-34-19"></a>{
-<a id="__codelineno-34-20" name="__codelineno-34-20"></a>    "couleurs": [],
-<a id="__codelineno-34-21" name="__codelineno-34-21"></a>    "valide": false,
-<a id="__codelineno-34-22" name="__codelineno-34-22"></a>    "erreurs": [
-<a id="__codelineno-34-23" name="__codelineno-34-23"></a>        "Ce champ est obligatoire."
-<a id="__codelineno-34-24" name="__codelineno-34-24"></a>    ]
-<a id="__codelineno-34-25" name="__codelineno-34-25"></a>}
+<span class="normal"><a href="#__codelineno-34-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="p">{</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="w">    </span><span class="nt">"couleurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="w">        </span><span class="s2">"rouge"</span><span class="p">,</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="w">        </span><span class="s2">"bleu"</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="w">    </span><span class="nt">"valide"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="w">    </span><span class="nt">"erreurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="p">}</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9"></a><span class="p">{</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10"></a><span class="w">    </span><span class="nt">"couleurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11"></a><span class="w">        </span><span class="s2">"rouge"</span><span class="p">,</span>
+<a id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="w">        </span><span class="s2">"noir"</span>
+<a id="__codelineno-34-13" name="__codelineno-34-13"></a><span class="w">    </span><span class="p">],</span>
+<a id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="w">    </span><span class="nt">"valide"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-34-15" name="__codelineno-34-15"></a><span class="w">    </span><span class="nt">"erreurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-34-16" name="__codelineno-34-16"></a><span class="w">        </span><span class="s2">"noir : valeur inconnue"</span>
+<a id="__codelineno-34-17" name="__codelineno-34-17"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-34-18" name="__codelineno-34-18"></a><span class="p">}</span>
+<a id="__codelineno-34-19" name="__codelineno-34-19"></a><span class="p">{</span>
+<a id="__codelineno-34-20" name="__codelineno-34-20"></a><span class="w">    </span><span class="nt">"couleurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<a id="__codelineno-34-21" name="__codelineno-34-21"></a><span class="w">    </span><span class="nt">"valide"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-34-22" name="__codelineno-34-22"></a><span class="w">    </span><span class="nt">"erreurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-34-23" name="__codelineno-34-23"></a><span class="w">        </span><span class="s2">"Ce champ est obligatoire."</span>
+<a id="__codelineno-34-24" name="__codelineno-34-24"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-34-25" name="__codelineno-34-25"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Le message d&#x27;erreur désigne la valeur fautive, <strong><em>[noir]</em></strong>.</p>
 <h2 id="35-exemple-11-les-parametres-dune-requete-post">3.5. <span style="color: #2e74b5">Exemple 11 : les paramètres d&#x27;une requête POST</span></h2>
@@ -2278,41 +2278,41 @@
 <span class="normal"><a href="#__codelineno-46-32">32</a></span>
 <span class="normal"><a href="#__codelineno-46-33">33</a></span>
 <span class="normal"><a href="#__codelineno-46-34">34</a></span>
-<span class="normal"><a href="#__codelineno-46-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1"></a>{
-<a id="__codelineno-46-2" name="__codelineno-46-2"></a>    "personne": {
-<a id="__codelineno-46-3" name="__codelineno-46-3"></a>        "nom": "martin",
-<a id="__codelineno-46-4" name="__codelineno-46-4"></a>        "age": 42,
-<a id="__codelineno-46-5" name="__codelineno-46-5"></a>        "titre": "Mr",
-<a id="__codelineno-46-6" name="__codelineno-46-6"></a>        "email": ""
-<a id="__codelineno-46-7" name="__codelineno-46-7"></a>    },
-<a id="__codelineno-46-8" name="__codelineno-46-8"></a>    "valide": true
-<a id="__codelineno-46-9" name="__codelineno-46-9"></a>}
-<a id="__codelineno-46-10" name="__codelineno-46-10"></a>{
-<a id="__codelineno-46-11" name="__codelineno-46-11"></a>    "statut": 400,
-<a id="__codelineno-46-12" name="__codelineno-46-12"></a>    "erreurs": [
-<a id="__codelineno-46-13" name="__codelineno-46-13"></a>        {
-<a id="__codelineno-46-14" name="__codelineno-46-14"></a>            "champ": "nom",
-<a id="__codelineno-46-15" name="__codelineno-46-15"></a>            "message": "Assurez-vous que cette valeur comporte au moins 2 caractères (actuellement 1)."
-<a id="__codelineno-46-16" name="__codelineno-46-16"></a>        },
-<a id="__codelineno-46-17" name="__codelineno-46-17"></a>        {
-<a id="__codelineno-46-18" name="__codelineno-46-18"></a>            "champ": "age",
-<a id="__codelineno-46-19" name="__codelineno-46-19"></a>            "message": "Saisissez un nombre entier."
-<a id="__codelineno-46-20" name="__codelineno-46-20"></a>        },
-<a id="__codelineno-46-21" name="__codelineno-46-21"></a>        {
-<a id="__codelineno-46-22" name="__codelineno-46-22"></a>            "champ": "titre",
-<a id="__codelineno-46-23" name="__codelineno-46-23"></a>            "message": "Sélectionnez un choix valide. Mx n’en fait pas partie."
-<a id="__codelineno-46-24" name="__codelineno-46-24"></a>        }
-<a id="__codelineno-46-25" name="__codelineno-46-25"></a>    ]
-<a id="__codelineno-46-26" name="__codelineno-46-26"></a>}
-<a id="__codelineno-46-27" name="__codelineno-46-27"></a>{
-<a id="__codelineno-46-28" name="__codelineno-46-28"></a>    "personne": {
-<a id="__codelineno-46-29" name="__codelineno-46-29"></a>        "nom": "martin",
-<a id="__codelineno-46-30" name="__codelineno-46-30"></a>        "age": 42,
-<a id="__codelineno-46-31" name="__codelineno-46-31"></a>        "titre": "Mr",
-<a id="__codelineno-46-32" name="__codelineno-46-32"></a>        "email": ""
-<a id="__codelineno-46-33" name="__codelineno-46-33"></a>    },
-<a id="__codelineno-46-34" name="__codelineno-46-34"></a>    "valide": true
-<a id="__codelineno-46-35" name="__codelineno-46-35"></a>}
+<span class="normal"><a href="#__codelineno-46-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="p">{</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="w">    </span><span class="nt">"personne"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="w">        </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"martin"</span><span class="p">,</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4"></a><span class="w">        </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5"></a><span class="w">        </span><span class="nt">"titre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6"></a><span class="w">        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
+<a id="__codelineno-46-7" name="__codelineno-46-7"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-46-8" name="__codelineno-46-8"></a><span class="w">    </span><span class="nt">"valide"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-46-9" name="__codelineno-46-9"></a><span class="p">}</span>
+<a id="__codelineno-46-10" name="__codelineno-46-10"></a><span class="p">{</span>
+<a id="__codelineno-46-11" name="__codelineno-46-11"></a><span class="w">    </span><span class="nt">"statut"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<a id="__codelineno-46-12" name="__codelineno-46-12"></a><span class="w">    </span><span class="nt">"erreurs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-46-13" name="__codelineno-46-13"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-46-14" name="__codelineno-46-14"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nom"</span><span class="p">,</span>
+<a id="__codelineno-46-15" name="__codelineno-46-15"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Assurez-vous que cette valeur comporte au moins 2 caractères (actuellement 1)."</span>
+<a id="__codelineno-46-16" name="__codelineno-46-16"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-46-17" name="__codelineno-46-17"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-46-18" name="__codelineno-46-18"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"age"</span><span class="p">,</span>
+<a id="__codelineno-46-19" name="__codelineno-46-19"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saisissez un nombre entier."</span>
+<a id="__codelineno-46-20" name="__codelineno-46-20"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-46-21" name="__codelineno-46-21"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-46-22" name="__codelineno-46-22"></a><span class="w">            </span><span class="nt">"champ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"titre"</span><span class="p">,</span>
+<a id="__codelineno-46-23" name="__codelineno-46-23"></a><span class="w">            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sélectionnez un choix valide. Mx n’en fait pas partie."</span>
+<a id="__codelineno-46-24" name="__codelineno-46-24"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-46-25" name="__codelineno-46-25"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-46-26" name="__codelineno-46-26"></a><span class="p">}</span>
+<a id="__codelineno-46-27" name="__codelineno-46-27"></a><span class="p">{</span>
+<a id="__codelineno-46-28" name="__codelineno-46-28"></a><span class="w">    </span><span class="nt">"personne"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-46-29" name="__codelineno-46-29"></a><span class="w">        </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"martin"</span><span class="p">,</span>
+<a id="__codelineno-46-30" name="__codelineno-46-30"></a><span class="w">        </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<a id="__codelineno-46-31" name="__codelineno-46-31"></a><span class="w">        </span><span class="nt">"titre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr"</span><span class="p">,</span>
+<a id="__codelineno-46-32" name="__codelineno-46-32"></a><span class="w">        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
+<a id="__codelineno-46-33" name="__codelineno-46-33"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-46-34" name="__codelineno-46-34"></a><span class="w">    </span><span class="nt">"valide"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-46-35" name="__codelineno-46-35"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>La dernière requête envoie l&#x27;âge sous forme de chaîne (<strong><em>[&quot;42&quot;]</em></strong>, entre guillemets), là où le modèle attend un entier : le formulaire le convertit, comme il convertit les champs d&#x27;un formulaire HTML. Un formulaire <em>[Django]</em> est fait pour des données textuelles ; il accepte aussi une valeur déjà convertie (l&#x27;entier 42 du JSON). Une API plus exigeante sur les types utiliserait plutôt l&#x27;extension <em>[Django REST framework]</em>, dont les sérialiseurs distinguent la chaîne <strong><em>[&quot;42&quot;]</em></strong> de l&#x27;entier 42.</p>
 <h2 id="36-exemple-12-liaison-et-validation-personnalisees">3.6. <span style="color: #2e74b5">Exemple 12 : liaison et validation personnalisées</span></h2>
@@ -2343,7 +2343,7 @@
 <a id="__codelineno-47-5" name="__codelineno-47-5"></a>│   ├── urls.py
 <a id="__codelineno-47-6" name="__codelineno-47-6"></a>│   └── ...
 <a id="__codelineno-47-7" name="__codelineno-47-7"></a>├── liaisons/
-<a id="__codelineno-47-8" name="__codelineno-47-8"></a>│   ├── <span class="gs">__init__</span>.py
+<a id="__codelineno-47-8" name="__codelineno-47-8"></a>│   ├── __init__.py
 <a id="__codelineno-47-9" name="__codelineno-47-9"></a>│   ├── convertisseurs.py
 <a id="__codelineno-47-10" name="__codelineno-47-10"></a>│   ├── liaison.py
 <a id="__codelineno-47-11" name="__codelineno-47-11"></a>│   ├── modeles.py
@@ -2731,13 +2731,13 @@
 <span class="normal"><a href="#__codelineno-55-4">4</a></span>
 <span class="normal"><a href="#__codelineno-55-5">5</a></span>
 <span class="normal"><a href="#__codelineno-55-6">6</a></span>
-<span class="normal"><a href="#__codelineno-55-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="nx">agenda</span><span class="w"> </span><span class="nx">du</span><span class="w"> </span><span class="nx">jour</span><span class="w"> </span><span class="p">[</span><span class="mf">2026</span><span class="o">-</span><span class="mf">09</span><span class="o">-</span><span class="mf">23</span><span class="p">],</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">URL</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="err">/exemples/agenda/23-09-2026</span>
-<a id="__codelineno-55-2" name="__codelineno-55-2"></a><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">404</span><span class="w"> </span><span class="nx">Not</span><span class="w"> </span><span class="nx">Found</span>
-<a id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="kt">text</span><span class="o">/</span><span class="nx">html</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span>
-<a id="__codelineno-55-4" name="__codelineno-55-4"></a><span class="p">...</span>
-<a id="__codelineno-55-5" name="__codelineno-55-5"></a><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">404</span><span class="w"> </span><span class="nx">Not</span><span class="w"> </span><span class="nx">Found</span>
-<a id="__codelineno-55-6" name="__codelineno-55-6"></a><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="kt">text</span><span class="o">/</span><span class="nx">html</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span>
-<a id="__codelineno-55-7" name="__codelineno-55-7"></a><span class="p">...</span>
+<span class="normal"><a href="#__codelineno-55-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1"></a>agenda du jour [2026-09-23], de type date, URL : /exemples/agenda/23-09-2026
+<a id="__codelineno-55-2" name="__codelineno-55-2"></a>HTTP/1.1 404 Not Found
+<a id="__codelineno-55-3" name="__codelineno-55-3"></a>Content-Type: text/html; charset=utf-8
+<a id="__codelineno-55-4" name="__codelineno-55-4"></a>...
+<a id="__codelineno-55-5" name="__codelineno-55-5"></a>HTTP/1.1 404 Not Found
+<a id="__codelineno-55-6" name="__codelineno-55-6"></a>Content-Type: text/html; charset=utf-8
+<a id="__codelineno-55-7" name="__codelineno-55-7"></a>...
 </code></pre></div></td></tr></table></div>
 <p>La date est affichée au format international, mais l&#x27;URL construite par <strong><em>[reverse]</em></strong> a retrouvé le format français. Le 31 février n&#x27;existe pas : 404, parce que notre convertisseur a refusé le segment. Une date au format international, <strong><em>[2026-09-23]</em></strong>, n&#x27;a pas la forme décrite par l&#x27;expression régulière : 404 également, sans même que <strong><em>[to_python]</em></strong> soit appelée. Dans les deux cas, la page d&#x27;erreur de <em>[Django]</em> liste les routes, dont <strong><em>[exemples/ agenda/&lt;jourfr:jour&gt;]</em></strong>.</p>
 <p>Le middleware. L&#x27;option <strong><em>[-H]</em></strong> de <em>[curl]</em> fixe l&#x27;entête <strong><em>[Accept-Language]</em></strong> :</p>
